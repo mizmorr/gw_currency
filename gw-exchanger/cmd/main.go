@@ -1,8 +1,20 @@
 package main
 
-import "github.com/mizmorr/gw_currency/gw-exchanger/internal/config"
+import (
+	"context"
+
+	pg "github.com/mizmorr/gw_currency/gw-exchanger/internal/storage/postgres"
+	logger "github.com/mizmorr/loggerm"
+)
 
 func main() {
-	cfg := config.Get()
-	cfg.Print()
+	log := logger.Get("debug")
+	ctx := context.WithValue(context.Background(), "logger", log)
+
+	_, err := pg.NewPostgresRepo(ctx)
+	if err != nil {
+		panic(err)
+	}
+	for {
+	}
 }
