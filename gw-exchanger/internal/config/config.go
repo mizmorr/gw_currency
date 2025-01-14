@@ -41,32 +41,41 @@ func Get() *Config {
 	once.Do(func() {
 		viper.AutomaticEnv()
 
-		for _, o := range Defaults {
-			switch o.Typing {
-			case "string":
-				fmt.Println(o.Name)
-				viper.SetDefault(o.Name, o.Value.(string))
-			case "int":
-				viper.SetDefault(o.Name, o.Value.(int))
-			default:
-				viper.SetDefault(o.Name, o.Value)
-			}
-		}
-		if fileName := viper.GetString("config"); fileName != "" {
-			viper.SetConfigName(fileName)
-			viper.SetConfigType("env")
-			viper.AddConfigPath(".")
+		setDefaults()
 
-			if err := viper.ReadInConfig(); err != nil {
-				panic(err)
-			}
-		}
+		loadConfig()
+
 		if err := viper.Unmarshal(&config); err != nil {
 			panic(err)
 		}
 	})
 
 	return &config
+}
+
+func setDefaults() {
+	for _, o := range defaults {
+		switch o.typing {
+		case "string":
+			viper.SetDefault(o.name, o.value.(string))
+		case "int":
+			viper.SetDefault(o.name, o.value.(int))
+		default:
+			viper.SetDefault(o.name, o.value)
+		}
+	}
+}
+
+func loadConfig() {
+	if fileName := viper.GetString("config"); fileName != "" {
+		viper.SetConfigName(fileName)
+		viper.SetConfigType("env")
+		viper.AddConfigPath(".")
+
+		if err := viper.ReadInConfig(); err != nil {
+			panic(err)
+		}
+	}
 }
 
 func (c *Config) Print() error {
