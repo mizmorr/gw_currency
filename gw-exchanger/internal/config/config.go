@@ -16,6 +16,8 @@ type Config struct {
 	Listen
 
 	Storage
+
+	Workers
 }
 
 type Listen struct {
@@ -30,6 +32,11 @@ type Storage struct {
 	PostgresMaxIdleTime       time.Duration
 	PostgresMaxOpenConns      int
 	PostgresHealthCheckPeriod time.Duration
+}
+
+type Workers struct {
+	KeepAliveTimeout time.Duration
+	UpdateTimeout    time.Duration
 }
 
 var (

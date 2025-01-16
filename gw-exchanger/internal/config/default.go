@@ -56,6 +56,18 @@ var defaults = []option{
 		value:       "5m",
 		description: "Period for database health check",
 	},
+	{
+		name:        "workers.keepAliveTimeout",
+		typing:      "duration",
+		value:       "5s",
+		description: "Timeout for worker keep-alive",
+	},
+	{
+		name:        "workers.updateTimeout",
+		typing:      "duration",
+		value:       "10m",
+		description: "Timeout for worker update",
+	},
 }
 
 type option struct {
