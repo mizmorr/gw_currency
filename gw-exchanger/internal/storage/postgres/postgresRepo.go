@@ -4,29 +4,46 @@ import (
 	"context"
 	"time"
 
+	"github.com/mizmorr/gw_currency/gw-exchanger/internal/config"
+	"github.com/mizmorr/gw_currency/gw-exchanger/internal/storage"
+	"github.com/mizmorr/gw_currency/gw-exchanger/internal/storage/model"
+	"github.com/mizmorr/gw_currency/gw-exchanger/pkg/utils/fetcher"
 	logger "github.com/mizmorr/loggerm"
+	"github.com/pkg/errors"
 )
 
 type PostgresRepo struct {
-	db *pg
+	db     *pg
+	stop   chan interface{}
+	config *config.Config
 }
 
-func NewPostgresRepo(ctx context.Context) (*PostgresRepo, error) {
-	db, err := dial(ctx)
+func NewPostgresRepo(ctx context.Context) (storage.Repository, error) {
+	db, err := newPg(ctx)
 	if err != nil {
 		return nil, err
 	}
 
-	repo := PostgresRepo{
-		db: db,
-	}
+	ch := make(chan interface{})
 
-	go repo.keepAlive(ctx)
-
-	return &repo, nil
+	return &PostgresRepo{
+		db:     db,
+		stop:   ch,
+		config: config.Get(),
+	}, nil
 }
 
-const keepALiveTimeout = 5
+func (repo *PostgresRepo) Start(ctx context.Context) error {
+	err := dial(ctx)
+	if err != nil {
+		return err
+	}
+	go repo.keepAlive(ctx)
+
+	go repo.updater(ctx)
+
+	return nil
+}
 
 func (repo *PostgresRepo) keepAlive(ctx context.Context) {
 	log := logger.GetLoggerFromContext(ctx)
@@ -34,23 +51,83 @@ func (repo *PostgresRepo) keepAlive(ctx context.Context) {
 	log.Debug().Msg("Keeping database connection alive...")
 
 	for {
-		time.Sleep(time.Second * keepALiveTimeout)
-
-		connectionLost := false
-
-		conn, err := repo.db.Acquire(ctx)
-		if err != nil {
-			connectionLost = true
-			log.Debug().Msg("[keepAlive] Lost connection, is trying to reconnect...")
-		} else {
-			conn.Release()
+		select {
+		case <-repo.stop:
+			log.Info().Msg("Keep alive worker is stopped..")
+			return
+		default:
+			repo.maintainConnection(ctx, log)
 		}
+	}
+}
 
-		if connectionLost {
-			repo.db, err = dial(ctx)
-			if err != nil {
-				log.Err(err).Msg("Failed to reconnect to PostgreSQL database")
+func (repo *PostgresRepo) maintainConnection(ctx context.Context, log *logger.Logger) {
+	time.Sleep(repo.config.KeepAliveTimeout)
+
+	connectionLost := false
+
+	conn, err := repo.db.Acquire(ctx)
+	if err != nil {
+		connectionLost = true
+		log.Debug().Msg("[keepAlive] Lost connection, is trying to reconnect...")
+	} else {
+		conn.Release()
+	}
+
+	if connectionLost {
+		err = dial(ctx)
+		if err != nil {
+			log.Err(err).Msg("Failed to reconnect to PostgreSQL database")
+		}
+	}
+}
+
+const workersCount = 2
+
+func (repo *PostgresRepo) Stop(_ context.Context) {
+	for range workersCount {
+		repo.stop <- struct{}{}
+	}
+	repo.db.Close()
+}
+
+func (repo *PostgresRepo) updater(ctx context.Context) {
+	log := logger.GetLoggerFromContext(ctx)
+
+	repo.update(ctx)
+	updateStamp := time.Now()
+
+	log.Info().Msg("Updater worker is starting..")
+
+	for {
+		select {
+		case <-repo.stop:
+			log.Info().Msg("Updater worker is stopped..")
+			return
+		default:
+			if time.Since(updateStamp) > repo.config.UpdateTimeout {
+				if err := repo.update(ctx); err != nil {
+					log.Err(err).Msg("Failed to update rates")
+				}
 			}
 		}
 	}
+}
+
+func (repo *PostgresRepo) update(ctx context.Context) error {
+	rates, err := fetcher.FetchRates(ctx)
+	if err != nil {
+		return errors.New("Failed to fetch rates")
+	}
+	for currencyCode, value := range rates {
+		rate := &model.Rate{
+			CurrencyCode: currencyCode,
+			Value:        value,
+		}
+		err := repo.setRate(ctx, rate)
+		if err != nil {
+			return errors.New("Failed to set rate: " + currencyCode)
+		}
+	}
+	return nil
 }
