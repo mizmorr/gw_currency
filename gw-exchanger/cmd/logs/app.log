@@ -1,0 +1,54 @@
+18 Jan 25 15:05 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/pg.go:30 | Database url checking... 
+18 Jan 25 15:05 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/pg.go:35 | Database config parsing... 
+18 Jan 25 15:05 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+18 Jan 25 15:05 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/app/app.go:75 | Service started 
+18 Jan 25 15:05 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:51 | Keeping database connection alive... 
+18 Jan 25 15:05 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:101 | Updater worker is starting.. 
+18 Jan 25 15:06 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/app/app.go:81 | Graceful shoutdown is running.. 
+18 Jan 25 15:06 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:106 | Updater worker is stopped.. 
+18 Jan 25 15:06 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:56 | Keep alive worker is stopped.. 
+18 Jan 25 15:06 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/app/app.go:96 | Service stopped 
+18 Jan 25 15:26 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/pg.go:30 | Database url checking... 
+18 Jan 25 15:26 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/pg.go:35 | Database config parsing... 
+18 Jan 25 15:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+18 Jan 25 15:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/app/app.go:75 | Service started 
+18 Jan 25 15:26 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:53 | Keeping database connection alive... 
+18 Jan 25 15:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:102 | Updater worker is starting.. 
+18 Jan 25 15:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/controller/controller.go:32 | Request got  
+18 Jan 25 15:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/methods.go:29 | Getting all reates 
+18 Jan 25 15:27 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/app/app.go:81 | Graceful shoutdown is running.. 
+18 Jan 25 15:27 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:90 | Stopping PostgreSQL repository.. 
+18 Jan 25 15:27 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:107 | Updater worker is stopped.. 
+18 Jan 25 15:27 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:58 | Keep alive worker is stopped.. 
+18 Jan 25 15:27 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/app/app.go:96 | Service stopped 
+18 Jan 25 15:35 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/pg.go:30 | Database url checking... 
+18 Jan 25 15:35 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/pg.go:35 | Database config parsing... 
+18 Jan 25 15:35 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+18 Jan 25 15:35 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/app/app.go:75 | Service started 
+18 Jan 25 15:35 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:53 | Keeping database connection alive... 
+18 Jan 25 15:35 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:102 | Updater worker is starting.. 
+18 Jan 25 15:35 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/server/server.go:97 | Incoming gRPC request  [36mclient_ip=[0m127.0.0.1:51532 [36mmethod=[0m/currencyexchange.CurrencyExchangeService/GetAllRates [36mrequest=[0m{}
+18 Jan 25 15:35 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/methods.go:29 | Getting all reates 
+18 Jan 25 15:35 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/server/server.go:105 | Completed gRPC request  [36mduration=[0m1.646524 [36mmethod=[0m/currencyexchange.CurrencyExchangeService/GetAllRates
+18 Jan 25 15:35 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/app/app.go:81 | Graceful shoutdown is running.. 
+18 Jan 25 15:35 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:90 | Stopping PostgreSQL repository.. 
+18 Jan 25 15:35 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:107 | Updater worker is stopped.. 
+18 Jan 25 15:35 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:58 | Keep alive worker is stopped.. 
+18 Jan 25 15:35 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/app/app.go:96 | Service stopped 
+18 Jan 25 15:36 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/pg.go:30 | Database url checking... 
+18 Jan 25 15:36 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/pg.go:35 | Database config parsing... 
+18 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+18 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/app/app.go:75 | Service started 
+18 Jan 25 15:36 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:53 | Keeping database connection alive... 
+18 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:102 | Updater worker is starting.. 
+18 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/server/server.go:97 | Incoming gRPC request  [36mclient_ip=[0m127.0.0.1:34598 [36mmethod=[0m/currencyexchange.CurrencyExchangeService/GetAllRates [36mrequest=[0m{}
+18 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/methods.go:29 | Getting all rates.. 
+18 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/server/server.go:105 | Completed gRPC request  [36mduration=[0m1.373769 [36mmethod=[0m/currencyexchange.CurrencyExchangeService/GetAllRates
+18 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/server/server.go:97 | Incoming gRPC request  [36mclient_ip=[0m127.0.0.1:34598 [36mmethod=[0m/currencyexchange.CurrencyExchangeService/GetSpecificRate [36mrequest=[0m{"currency_code":"EUR"}
+18 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/methods.go:12 | Getting rate for EUR 
+18 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/server/server.go:105 | Completed gRPC request  [36mduration=[0m1.226941 [36mmethod=[0m/currencyexchange.CurrencyExchangeService/GetSpecificRate
+18 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/app/app.go:81 | Graceful shoutdown is running.. 
+18 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:90 | Stopping PostgreSQL repository.. 
+18 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:107 | Updater worker is stopped.. 
+18 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/storage/postgres/postgresRepo.go:58 | Keep alive worker is stopped.. 
+18 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-exchanger/internal/app/app.go:96 | Service stopped 
