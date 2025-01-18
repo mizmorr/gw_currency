@@ -2,12 +2,10 @@ package store
 
 import (
 	"time"
-
-	"github.com/google/uuid"
 )
 
 type User struct {
-	ID        uuid.UUID
+	ID        int64
 	Username  string
 	Email     string
 	Password  string
@@ -16,23 +14,23 @@ type User struct {
 }
 
 type Wallet struct {
-	ID        uuid.UUID
-	UserID    uuid.UUID
+	ID        int64
+	UserID    int64
 	CreatedAt time.Time
 	UpdatedAt time.Time
 }
 
 type WalletBalance struct {
-	ID        uuid.UUID
-	WalletID  uuid.UUID
+	ID        int64
+	WalletID  int64
 	Currency  string
 	Balance   float64
 	UpdatedAt time.Time
 }
 
 type Transaction struct {
-	ID          uuid.UUID
-	WalletID    uuid.UUID
+	ID          int64
+	WalletID    int64
 	Currency    string
 	Amount      float64
 	Type        string
