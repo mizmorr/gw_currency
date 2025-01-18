@@ -2,29 +2,30 @@ package main
 
 import (
 	"context"
-	"time"
+	"os"
+	"os/signal"
+	"syscall"
 
-	pg "github.com/mizmorr/gw_currency/gw-exchanger/internal/storage/postgres"
-	logger "github.com/mizmorr/loggerm"
+	"github.com/mizmorr/gw_currency/gw-exchanger/internal/app"
 )
 
 func main() {
-	log := logger.Get("debug")
-	ctx := context.WithValue(context.Background(), "logger", log)
-
-	repo, err := pg.NewPostgresRepo(ctx)
-	if err != nil {
+	if err := execute(); err != nil {
 		panic(err)
 	}
-	err = repo.Start(ctx)
-	if err != nil {
-		panic(err)
+}
+
+func execute() error {
+	ctx := context.Background()
+	app := app.New(ctx)
+
+	if err := app.Start(); err != nil {
+		return err
 	}
 
-	go func() {
-		time.Sleep(time.Second * 15)
-		repo.Stop(ctx)
-	}()
-	for {
-	}
+	stopCh := make(chan os.Signal, 1)
+	signal.Notify(stopCh, os.Interrupt, syscall.SIGINT, syscall.SIGTERM, syscall.SIGHUP)
+
+	<-stopCh
+	return app.Stop()
 }
