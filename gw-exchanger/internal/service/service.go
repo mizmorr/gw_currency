@@ -43,6 +43,7 @@ func (svc *ExchangerService) Start(ctx context.Context) error {
 	return svc.store.Start(ctx)
 }
 
-func (svc *ExchangerService) Stop(ctx context.Context) {
+func (svc *ExchangerService) Stop(ctx context.Context) error {
 	svc.store.Stop(ctx)
+	return nil
 }
