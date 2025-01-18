@@ -38,7 +38,7 @@ func NewPostgresRepo(ctx context.Context) (storage.Repository, error) {
 }
 
 func (repo *PostgresRepo) Start(ctx context.Context) error {
-	err := dial(ctx)
+	err := dial(ctx, repo.config.PostgresConnectAttempts, repo.config.PostgresTimeout)
 	if err != nil {
 		return err
 	}
@@ -77,7 +77,7 @@ func (repo *PostgresRepo) maintainConnection(ctx context.Context) {
 	}
 
 	if connectionLost {
-		err = dial(ctx)
+		err = dial(ctx, repo.config.PostgresConnectAttempts, repo.config.PostgresTimeout)
 		if err != nil {
 			repo.log.Err(err).Msg("Failed to reconnect to PostgreSQL database")
 		}

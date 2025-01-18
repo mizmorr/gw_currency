@@ -3,6 +3,7 @@ package pg
 import (
 	"context"
 	"sync"
+	"time"
 
 	"github.com/pkg/errors"
 
@@ -52,11 +53,10 @@ func newPg(ctx context.Context) (*pg, error) {
 	return pgInstance, nil
 }
 
-func dial(ctx context.Context) error {
-	confg := config.Get()
+func dial(ctx context.Context, connectAttempts int, timeout time.Duration) error {
 	var err error
 	once.Do(func() {
-		err = connector.EstablishConnection(ctx, pgInstance.Pool, confg.PostgresConnectAttempts, confg.PostgresTimeout)
+		err = connector.EstablishConnection(ctx, pgInstance.Pool, connectAttempts, timeout)
 	})
 	return err
 }
