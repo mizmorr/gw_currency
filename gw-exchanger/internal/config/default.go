@@ -2,10 +2,16 @@ package config
 
 var defaults = []option{
 	{
-		name:        "loglevel",
+		name:        "logger.level",
 		typing:      "string",
-		value:       "info",
+		value:       "debug",
 		description: "Level of logging",
+	},
+	{
+		name:        "logger.pathFile",
+		typing:      "string",
+		value:       "./logs/app.log",
+		description: "Path to the log file",
 	},
 	{
 		name:        "listen.host",
@@ -15,8 +21,8 @@ var defaults = []option{
 	},
 	{
 		name:        "listen.port",
-		typing:      "int",
-		value:       8080,
+		typing:      "string",
+		value:       "50051",
 		description: "Server port",
 	},
 

@@ -11,18 +11,18 @@ import (
 )
 
 type Config struct {
-	LogLevel string
-
 	Listen
 
 	Storage
 
 	Workers
+
+	Logger
 }
 
 type Listen struct {
 	Host string
-	Port int
+	Port string
 }
 
 type Storage struct {
@@ -37,6 +37,11 @@ type Storage struct {
 type Workers struct {
 	KeepAliveTimeout time.Duration
 	UpdateTimeout    time.Duration
+}
+
+type Logger struct {
+	Level    string
+	PathFile string
 }
 
 var (
