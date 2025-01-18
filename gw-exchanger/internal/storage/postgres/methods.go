@@ -9,6 +9,8 @@ import (
 )
 
 func (repo *PostgresRepo) GetRate(ctx context.Context, code string) (*model.Rate, error) {
+	repo.log.Info().Msg("Getting rate for " + code)
+
 	sql := `SELECT currency_code, rate FROM exchange_rate WHERE currency_code = $1`
 	row := repo.db.QueryRow(ctx, sql, code)
 
@@ -24,6 +26,8 @@ func (repo *PostgresRepo) GetRate(ctx context.Context, code string) (*model.Rate
 }
 
 func (repo *PostgresRepo) GetAllRates(ctx context.Context) ([]*model.Rate, error) {
+	repo.log.Info().Msg("Getting all rates..")
+
 	sql := `SELECT currency_code, rate FROM exchange_rate`
 	rows, err := repo.db.Query(ctx, sql)
 	if err != nil {
@@ -46,6 +50,7 @@ func (repo *PostgresRepo) GetAllRates(ctx context.Context) ([]*model.Rate, error
 
 func (repo *PostgresRepo) setRate(ctx context.Context, rate *model.Rate) error {
 	sql := "update exchange_rate set rate=$1 where currency_code = $2"
+
 	row, err := repo.db.Exec(ctx, sql, rate.Value, rate.CurrencyCode)
 	if err != nil {
 		return errors.Wrap(err, "failed to set rate")

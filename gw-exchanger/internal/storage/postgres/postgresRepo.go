@@ -16,6 +16,7 @@ type PostgresRepo struct {
 	db     *pg
 	stop   chan interface{}
 	config *config.Config
+	log    *logger.Logger
 }
 
 func NewPostgresRepo(ctx context.Context) (storage.Repository, error) {
@@ -24,12 +25,15 @@ func NewPostgresRepo(ctx context.Context) (storage.Repository, error) {
 		return nil, err
 	}
 
+	log := logger.GetLoggerFromContext(ctx)
+
 	ch := make(chan interface{})
 
 	return &PostgresRepo{
 		db:     db,
 		stop:   ch,
 		config: config.Get(),
+		log:    log,
 	}, nil
 }
 
@@ -46,22 +50,20 @@ func (repo *PostgresRepo) Start(ctx context.Context) error {
 }
 
 func (repo *PostgresRepo) keepAlive(ctx context.Context) {
-	log := logger.GetLoggerFromContext(ctx)
-
-	log.Debug().Msg("Keeping database connection alive...")
+	repo.log.Debug().Msg("Keeping database connection alive...")
 
 	for {
 		select {
 		case <-repo.stop:
-			log.Info().Msg("Keep alive worker is stopped..")
+			repo.log.Info().Msg("Keep alive worker is stopped..")
 			return
 		default:
-			repo.maintainConnection(ctx, log)
+			repo.maintainConnection(ctx)
 		}
 	}
 }
 
-func (repo *PostgresRepo) maintainConnection(ctx context.Context, log *logger.Logger) {
+func (repo *PostgresRepo) maintainConnection(ctx context.Context) {
 	time.Sleep(repo.config.KeepAliveTimeout)
 
 	connectionLost := false
@@ -69,7 +71,7 @@ func (repo *PostgresRepo) maintainConnection(ctx context.Context, log *logger.Lo
 	conn, err := repo.db.Acquire(ctx)
 	if err != nil {
 		connectionLost = true
-		log.Debug().Msg("[keepAlive] Lost connection, is trying to reconnect...")
+		repo.log.Debug().Msg("[keepAlive] Lost connection, is trying to reconnect...")
 	} else {
 		conn.Release()
 	}
@@ -77,37 +79,37 @@ func (repo *PostgresRepo) maintainConnection(ctx context.Context, log *logger.Lo
 	if connectionLost {
 		err = dial(ctx)
 		if err != nil {
-			log.Err(err).Msg("Failed to reconnect to PostgreSQL database")
+			repo.log.Err(err).Msg("Failed to reconnect to PostgreSQL database")
 		}
 	}
 }
 
 const workersCount = 2
 
-func (repo *PostgresRepo) Stop(_ context.Context) {
+func (repo *PostgresRepo) Stop(_ context.Context) error {
+	repo.log.Info().Msg("Stopping PostgreSQL repository..")
 	for range workersCount {
 		repo.stop <- struct{}{}
 	}
 	repo.db.Close()
+	return nil
 }
 
 func (repo *PostgresRepo) updater(ctx context.Context) {
-	log := logger.GetLoggerFromContext(ctx)
-
 	repo.update(ctx)
 	updateStamp := time.Now()
 
-	log.Info().Msg("Updater worker is starting..")
+	repo.log.Info().Msg("Updater worker is starting..")
 
 	for {
 		select {
 		case <-repo.stop:
-			log.Info().Msg("Updater worker is stopped..")
+			repo.log.Info().Msg("Updater worker is stopped..")
 			return
 		default:
 			if time.Since(updateStamp) > repo.config.UpdateTimeout {
 				if err := repo.update(ctx); err != nil {
-					log.Err(err).Msg("Failed to update rates")
+					repo.log.Err(err).Msg("Failed to update rates")
 				}
 			}
 		}
