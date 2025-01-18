@@ -11,5 +11,5 @@ type Repository interface {
 	GetRate(ctx context.Context, code string) (*model.Rate, error)
 
 	Start(ctx context.Context) error
-	Stop(ctx context.Context)
+	Stop(ctx context.Context) error
 }
