@@ -14,13 +14,13 @@ var defaults = []option{
 		description: "Path to the log file",
 	},
 	{
-		name:        "listen.host",
+		name:        "listen.httpHost",
 		typing:      "string",
 		value:       "localhost",
 		description: "Server host",
 	},
 	{
-		name:        "listen.port",
+		name:        "listen.httpPort",
 		typing:      "string",
 		value:       "8080",
 		description: "Server port",
@@ -57,7 +57,7 @@ var defaults = []option{
 		description: "Maximum number of open database connections",
 	},
 	{
-		name:        "storage.postgresHealthCheckPeriod",
+		name:        "storage.postgres.HealthCheckPeriod",
 		typing:      "duration",
 		value:       "5m",
 		description: "Period for database health check",
