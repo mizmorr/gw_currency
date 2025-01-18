@@ -5,6 +5,7 @@ CREATE TABLE wallet_balances (
     wallet_id BIGINT NOT NULL,
     currency VARCHAR(10) NOT NULL,
     balance DECIMAL(20, 2) DEFAULT 0.00,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(wallet_id, currency),
     FOREIGN KEY (wallet_id) REFERENCES wallets(id) ON DELETE CASCADE
