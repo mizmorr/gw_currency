@@ -1,0 +1,22 @@
+-- migrations/001_users_table.up.sql
+CREATE TABLE users (
+    id BIGSERIAL PRIMARY KEY,
+    username VARCHAR(255) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE OR REPLACE FUNCTION update_timestamp()
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW.updated_at = CURRENT_TIMESTAMP;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER set_updated_at
+BEFORE UPDATE ON users
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
