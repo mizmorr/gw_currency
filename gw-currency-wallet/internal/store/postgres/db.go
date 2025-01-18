@@ -22,7 +22,7 @@ var (
 	once       sync.Once
 )
 
-func NewDB(ctx context.Context, confg *config.Config) (*db, error) {
+func newDBConnector(ctx context.Context, confg *config.Config) (*db, error) {
 	log := logger.GetLoggerFromContext(ctx)
 
 	log.Debug().Msg("Database config parsing...")
