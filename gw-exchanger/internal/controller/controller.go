@@ -4,6 +4,7 @@ import (
 	"context"
 
 	pb "github.com/mizmorr/grpc_exchange/exchange"
+	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -38,4 +39,8 @@ func (c *ExchangeController) GetSpecificRate(ctx context.Context, req *pb.Curren
 		return nil, status.Errorf(codes.InvalidArgument, "Failed to get rate")
 	}
 	return rate, nil
+}
+
+func (c *ExchangeController) Register(_ context.Context, server *grpc.Server) {
+	pb.RegisterCurrencyExchangeServiceServer(server, c)
 }
