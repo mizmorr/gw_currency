@@ -4,7 +4,6 @@ import (
 	"context"
 
 	"github.com/mizmorr/gw_currency/gw-currency-wallet/internal/config"
-	"github.com/mizmorr/gw_currency/gw-currency-wallet/internal/store"
 	"github.com/mizmorr/gw_currency/gw-currency-wallet/internal/store/postgres"
 	logger "github.com/mizmorr/loggerm"
 )
@@ -24,16 +23,11 @@ func main() {
 		log.Fatal().Err(err).Msg("Failed to start Postgres repository")
 	}
 
-	user := &store.User{
-		Username: "bob",
-		Email:    "example@example.com",
-		Password: "password",
-	}
-
-	err = repo.CreateUser(ctx, user)
+	walletb, err := repo.GetBalance(ctx, 1)
 	if err != nil {
 		log.Fatal().Err(err).Msg("Failed to create user")
 	}
+	log.Info().Interface("wallets", walletb).Msg("Get balance")
 
 	for {
 	}
