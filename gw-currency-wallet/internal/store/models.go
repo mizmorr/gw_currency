@@ -28,12 +28,11 @@ type WalletBalance struct {
 	UpdatedAt time.Time
 }
 
-type Transaction struct {
+type RefreshToken struct {
 	ID          int64
-	WalletID    int64
-	Currency    string
-	Amount      float64
-	Type        string
-	Description string
+	UserID      int64
+	RefreshHash string
+	ExpiresAt   time.Time
+	Revoked     bool
 	CreatedAt   time.Time
 }
