@@ -103,3 +103,38 @@ func (repo *PostgresRepo) GetBalance(ctx context.Context, userid int64) ([]*stor
 
 	return wallets, nil
 }
+
+func (repo *PostgresRepo) UpdateBalance(ctx context.Context, newBalance *store.UpdateBalance) error {
+	operator, err := repo.getOperator(newBalance.Operation)
+	if err != nil {
+		return err
+	}
+
+	sql := `update wallet_balances set balance = balance ` + operator + `$1 where currency = $2 and wallet_id =
+	(select distinct wallet_id from wallet_balances join wallets on wallet_balances.wallet_id=wallets.id where wallets.user_id=$3);`
+
+	row, err := repo.db.Exec(ctx, sql, newBalance.Amount, newBalance.Currency, newBalance.UserID)
+	if err != nil {
+		return errors.Wrap(err, "failed to update balance")
+	}
+	if row.RowsAffected() == 0 {
+		return errors.New("user or currency not found")
+	}
+	return nil
+}
+
+func (repo *PostgresRepo) getOperator(operation string) (string, error) {
+	var operator string
+	switch operation {
+	case "deposit":
+		operator = "+"
+	case "withdraw":
+		operator = "-"
+	default:
+		return "", errors.New("invalid operation")
+	}
+	return operator, nil
+}
+
+func (repo *PostgresRepo) ExchangeCurrency(ctx context.Context) error {
+}

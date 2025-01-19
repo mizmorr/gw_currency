@@ -20,6 +20,13 @@ type Wallet struct {
 	UpdatedAt time.Time
 }
 
+type UpdateBalance struct {
+	UserID    int64
+	Currency  string
+	Amount    float64
+	Operation string
+}
+
 type WalletBalance struct {
 	ID        int64
 	WalletID  int64
