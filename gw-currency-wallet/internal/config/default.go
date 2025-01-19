@@ -63,16 +63,10 @@ var defaults = []option{
 		description: "Period for database health check",
 	},
 	{
-		name:        "workers.keepAliveTimeout",
+		name:        "worker.keepAliveTimeout",
 		typing:      "duration",
 		value:       "5s",
 		description: "Timeout for worker keep-alive",
-	},
-	{
-		name:        "workers.updateTimeout",
-		typing:      "duration",
-		value:       "10m",
-		description: "Timeout for worker update",
 	},
 	{
 		name:        "storage.redis.host",
@@ -97,6 +91,30 @@ var defaults = []option{
 		typing:      "int",
 		value:       0,
 		description: "Redis database index",
+	},
+	{
+		name:        "jwttokens.refreshSecret",
+		typing:      "string",
+		value:       "w@X7pN9!kL2eD$3fQv8yR&Z6tUj4HbG^T0#CaV5mYxJ8LpKdR",
+		description: "Secret for refreshing the access token",
+	},
+	{
+		name:        "jwttokens.accessSecret",
+		typing:      "string",
+		value:       "4F#yLt@Q2pW9!n3KzV8RbY^CaX0J6m&kdUXH7v5PL!ZtjDR",
+		description: "Secret for accessing the API",
+	},
+	{
+		name:        "jwttokens.accessExpiresTime",
+		typing:      "duration",
+		value:       "1h",
+		description: "Expiration time for the access token",
+	},
+	{
+		name:        "jwttokens.refreshExpiresTime",
+		typing:      "duration",
+		value:       "24h",
+		description: "Expiration time for the refresh token",
 	},
 }
 

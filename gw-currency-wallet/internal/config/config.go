@@ -15,9 +15,11 @@ type Config struct {
 
 	Storage
 
-	Workers
+	Worker
 
 	Logger
+
+	JWTtokens
 }
 
 type Listen struct {
@@ -47,14 +49,20 @@ type Redis struct {
 	DB       int
 }
 
-type Workers struct {
+type Worker struct {
 	KeepAliveTimeout time.Duration
-	UpdateTimeout    time.Duration
 }
 
 type Logger struct {
 	Level    string
 	PathFile string
+}
+
+type JWTtokens struct {
+	RefreshSecret      string
+	AccessSecret       string
+	AccessExpiresTime  time.Duration
+	RefreshExpiresTime time.Duration
 }
 
 var (
