@@ -43,3 +43,11 @@ type RefreshToken struct {
 	Revoked     bool
 	CreatedAt   time.Time
 }
+
+type ExchangeBalance struct {
+	UserID       int64
+	FromCurrency string
+	FromAmount   float64
+	ToCurrency   string
+	ToAmount     float64
+}
