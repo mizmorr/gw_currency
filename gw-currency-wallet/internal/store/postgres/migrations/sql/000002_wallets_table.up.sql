@@ -21,3 +21,4 @@ BEFORE UPDATE ON wallets
 FOR EACH ROW
 EXECUTE FUNCTION update_wallet_timestamp();
 
+CREATE INDEX idx_wallets_user_id ON wallets(user_id);

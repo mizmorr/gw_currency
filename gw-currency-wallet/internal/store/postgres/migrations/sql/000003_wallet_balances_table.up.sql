@@ -23,3 +23,5 @@ CREATE TRIGGER set_balance_updated_at
 BEFORE UPDATE ON wallet_balances
 FOR EACH ROW
 EXECUTE FUNCTION update_balance_timestamp();
+
+CREATE INDEX idx_wallet_balances_wallet_id_currency ON wallet_balances(wallet_id, currency);
