@@ -4,6 +4,7 @@ import (
 	"context"
 	"time"
 
+	"github.com/jackc/pgx/v5"
 	"github.com/mizmorr/gw_currency/gw-currency-wallet/internal/store"
 	"github.com/mizmorr/gw_currency/gw-currency-wallet/pkg/hasher"
 	"github.com/pkg/errors"
@@ -110,17 +111,10 @@ func (repo *PostgresRepo) UpdateBalance(ctx context.Context, newBalance *store.U
 		return err
 	}
 
-	sql := `update wallet_balances set balance = balance ` + operator + `$1 where currency = $2 and wallet_id =
-	(select distinct wallet_id from wallet_balances join wallets on wallet_balances.wallet_id=wallets.id where wallets.user_id=$3);`
-
-	row, err := repo.db.Exec(ctx, sql, newBalance.Amount, newBalance.Currency, newBalance.UserID)
-	if err != nil {
-		return errors.Wrap(err, "failed to update balance")
-	}
-	if row.RowsAffected() == 0 {
-		return errors.New("user or currency not found")
-	}
-	return nil
+	return repo.updateBalance(
+		ctx, newBalance.Amount,
+		newBalance.UserID, newBalance.Currency,
+		operator)
 }
 
 func (repo *PostgresRepo) getOperator(operation string) (string, error) {
@@ -136,5 +130,62 @@ func (repo *PostgresRepo) getOperator(operation string) (string, error) {
 	return operator, nil
 }
 
-func (repo *PostgresRepo) ExchangeCurrency(ctx context.Context) error {
+func (repo *PostgresRepo) updateBalance(ctx context.Context, amount float64, userid int64, currency, operator string) error {
+	sql := repo.getSqlForChangeBalance(operator)
+
+	row, err := repo.db.Exec(ctx, sql, amount, currency, userid)
+	if err != nil {
+		return errors.Wrap(err, "failed to update balance")
+	}
+	if row.RowsAffected() == 0 {
+		return errors.New("user or currency not found")
+	}
+	return nil
+}
+
+func (repo *PostgresRepo) getSqlForChangeBalance(operator string) string {
+	return `WITH wallet_ids AS (
+    SELECT id
+    FROM wallets
+    WHERE user_id = $3
+)
+UPDATE wallet_balances
+SET balance = balance ` + operator + ` $1
+WHERE currency = $2
+AND wallet_id IN (SELECT id FROM wallet_ids);`
+}
+
+func (repo *PostgresRepo) ExchangeCurrency(ctx context.Context, exchangeBody *store.ExchangeBalance) error {
+	tx, err := repo.db.Begin(ctx)
+	if err != nil {
+		return errors.Wrap(err, "failed to begin transactionw")
+	}
+	defer func() {
+		if err != nil {
+			_ = tx.Rollback(ctx)
+		}
+	}()
+
+	err = repo.makeExchange(ctx, tx, exchangeBody)
+	if err != nil {
+		return err
+	}
+	err = tx.Commit(ctx)
+	if err != nil {
+		return errors.Wrap(err, "failed to commit transaction")
+	}
+
+	return nil
+}
+
+func (repo *PostgresRepo) makeExchange(ctx context.Context, tx pgx.Tx, exchangeBody *store.ExchangeBalance) error {
+	_, err := tx.Exec(ctx, repo.getSqlForChangeBalance("-"), exchangeBody.FromAmount, exchangeBody.FromCurrency, exchangeBody.UserID)
+	if err != nil {
+		return errors.Wrapf(err, "failed to update %s balance", exchangeBody.FromCurrency)
+	}
+	_, err = tx.Exec(ctx, repo.getSqlForChangeBalance("+"), exchangeBody.ToAmount, exchangeBody.ToCurrency, exchangeBody.UserID)
+	if err != nil {
+		return errors.Wrap(err, "failed to update target currency balance")
+	}
+	return nil
 }
