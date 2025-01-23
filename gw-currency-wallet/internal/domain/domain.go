@@ -21,10 +21,15 @@ type AuthorizationResponse struct {
 
 type BalanceResponse struct {
 	Currency string  `json:"currency"`
-	Balance  float64 `json:"balance"`
+	Value    float64 `json:"value"`
 }
 
 type DepositRequest struct {
+	Currency string  `json:"currency"`
+	Amount   float64 `json:"amount"`
+}
+
+type WithdrawRequest struct {
 	Currency string  `json:"currency"`
 	Amount   float64 `json:"amount"`
 }
@@ -44,4 +49,9 @@ type ExchangeResponse struct {
 	ExchangeAmount float64         `json:"exchange_amount"`
 	Message        string          `json:"message"`
 	NewBalances    []*RateResponse `json:"new_balances"`
+}
+
+type TokenRepsonse struct {
+	Access  string `json:"access"`
+	Refresh string `json:"refresh"`
 }
