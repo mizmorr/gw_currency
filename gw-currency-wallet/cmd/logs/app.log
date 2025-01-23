@@ -62,3 +62,105 @@
 19 Jan 25 21:53 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
 19 Jan 25 21:53 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
 19 Jan 25 21:53 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:31 | Get balance  [36mwallets=[0m[{"Balance":0,"Currency":"USD","ID":3,"UpdatedAt":"0001-01-01T00:00:00Z","WalletID":0},{"Balance":0,"Currency":"USD","ID":3,"UpdatedAt":"0001-01-01T00:00:00Z","WalletID":0},{"Balance":0,"Currency":"USD","ID":3,"UpdatedAt":"0001-01-01T00:00:00Z","WalletID":0}]
+23 Jan 25 00:50 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+23 Jan 25 00:50 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+23 Jan 25 00:50 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+23 Jan 25 00:50 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:30 | Get balance  [36mwallets=[0m[{"Balance":100,"Currency":"USD","ID":3,"UpdatedAt":"0001-01-01T00:00:00Z","WalletID":0},{"Balance":100,"Currency":"USD","ID":3,"UpdatedAt":"0001-01-01T00:00:00Z","WalletID":0},{"Balance":100,"Currency":"USD","ID":3,"UpdatedAt":"0001-01-01T00:00:00Z","WalletID":0}]
+23 Jan 25 14:14 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+23 Jan 25 14:14 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+23 Jan 25 14:14 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+23 Jan 25 14:14 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:34 | Balance [0xc000012438 0xc000012450 0xc000012468] 
+23 Jan 25 14:15 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+23 Jan 25 14:15 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+23 Jan 25 14:15 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+23 Jan 25 14:15 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:35 | Currency: USD, Balance: 100.000000 
+23 Jan 25 14:15 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:35 | Currency: USD, Balance: 100.000000 
+23 Jan 25 14:15 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:35 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:22 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+23 Jan 25 15:22 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+23 Jan 25 15:22 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+23 Jan 25 15:22 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:32 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:22 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:32 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:22 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:32 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:22 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:42 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:22 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:42 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:22 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:42 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:28 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+23 Jan 25 15:28 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+23 Jan 25 15:28 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+23 Jan 25 15:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:32 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:32 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:32 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:42 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:42 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:42 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:28 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+23 Jan 25 15:28 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+23 Jan 25 15:28 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+23 Jan 25 15:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:32 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:32 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:32 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:42 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:42 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:42 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:29 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+23 Jan 25 15:29 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+23 Jan 25 15:29 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+23 Jan 25 15:29 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:32 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:29 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:32 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:29 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:32 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:29 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:42 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:29 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:42 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:29 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:42 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:30 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+23 Jan 25 15:30 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+23 Jan 25 15:30 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+23 Jan 25 15:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:32 | Currency: RUB, Balance: 400.000000 
+23 Jan 25 15:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:32 | Currency: EUR, Balance: 50.000000 
+23 Jan 25 15:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:32 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:42 | Currency: RUB, Balance: 400.000000 
+23 Jan 25 15:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:42 | Currency: EUR, Balance: 50.000000 
+23 Jan 25 15:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:42 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:32 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+23 Jan 25 15:32 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+23 Jan 25 15:32 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+23 Jan 25 15:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:36 | Currency: RUB, Balance: 400.000000 
+23 Jan 25 15:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:36 | Currency: EUR, Balance: 50.000000 
+23 Jan 25 15:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:36 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:34 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+23 Jan 25 15:34 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+23 Jan 25 15:34 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+23 Jan 25 15:34 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:37 | Currency: RUB, Balance: 400.000000 
+23 Jan 25 15:34 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:37 | Currency: EUR, Balance: 50.000000 
+23 Jan 25 15:34 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:37 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:34 MSK | [FATAL] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:45 | Failed to deposit  [36merror=[0m[31m[1m"user or currency not found"[0m[0m
+23 Jan 25 15:36 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+23 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+23 Jan 25 15:36 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+23 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:37 | Currency: RUB, Balance: 400.000000 
+23 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:37 | Currency: EUR, Balance: 50.000000 
+23 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:37 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:36 MSK | [FATAL] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:45 | Failed to deposit  [36merror=[0m[31m[1m"user or currency not found"[0m[0m
+23 Jan 25 15:36 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+23 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+23 Jan 25 15:36 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+23 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:37 | Currency: RUB, Balance: 400.000000 
+23 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:37 | Currency: EUR, Balance: 50.000000 
+23 Jan 25 15:36 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:37 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:36 MSK | [FATAL] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:45 | Failed to deposit  [36merror=[0m[31m[1m"user or currency not found"[0m[0m
+23 Jan 25 15:40 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+23 Jan 25 15:40 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+23 Jan 25 15:40 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+23 Jan 25 15:40 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:37 | Currency: RUB, Balance: 400.000000 
+23 Jan 25 15:40 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:37 | Currency: EUR, Balance: 50.000000 
+23 Jan 25 15:40 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:37 | Currency: USD, Balance: 100.000000 
+23 Jan 25 15:40 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:48 | Currency: RUB, Balance: 400.000000 
+23 Jan 25 15:40 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:48 | Currency: EUR, Balance: 50.000000 
+23 Jan 25 15:40 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:48 | Currency: USD, Balance: 200.000000 
+23 Jan 25 15:43 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+23 Jan 25 15:43 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+23 Jan 25 15:43 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+23 Jan 25 15:43 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:37 | Currency: RUB, Balance: 400.000000 
+23 Jan 25 15:43 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:37 | Currency: EUR, Balance: 50.000000 
+23 Jan 25 15:43 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:37 | Currency: USD, Balance: 200.000000 
+23 Jan 25 15:43 MSK | [FATAL] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/cmd/main.go:45 | Failed to deposit  [36merror=[0m[31m[1m"insufficient funds"[0m[0m
