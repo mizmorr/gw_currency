@@ -48,25 +48,26 @@ func (repo *PostgresRepo) CreateUser(ctx context.Context, user *store.User) erro
 	return nil
 }
 
-func (repo *PostgresRepo) CheckPassword(ctx context.Context, user *store.User) error {
+func (repo *PostgresRepo) Authentication(ctx context.Context, user *store.User) (int64, error) {
 	var (
-		sql      = "SELECT password from USERS WHERE username = $1"
+		sql      = "SELECT id,password from USERS WHERE username = $1"
 		password string
+		userID   int64
 	)
 
 	err := repo.db.QueryRow(ctx, sql, user.Username).Scan(&password)
 	if err != nil {
-		return errors.Wrap(err, "invalid credentials")
+		return 0, errors.Wrap(err, "invalid credentials")
 	}
 
 	if !hasher.CheckPassword(user.Password, password) {
-		return errors.New("password is not correct")
+		return 0, errors.New("password is not correct")
 	}
 
-	return nil
+	return userID, nil
 }
 
-func (repo *PostgresRepo) AuthenticateUser(ctx context.Context, refresh *store.RefreshToken) error {
+func (repo *PostgresRepo) SetToken(ctx context.Context, refresh *store.RefreshToken) error {
 	err := repo.createRefreshToken(ctx, refresh.ExpiresAt, refresh.RefreshHash, refresh.UserID)
 	if err != nil {
 		return errors.Wrap(err, "invalid refresh token")
@@ -82,11 +83,21 @@ func (repo *PostgresRepo) createRefreshToken(ctx context.Context, expTime time.T
 	return err
 }
 
-func (repo *PostgresRepo) GetBalance(ctx context.Context, userid int64) ([]*store.WalletBalance, error) {
+func (repo *PostgresRepo) GetBalance(ctx context.Context, userid int64) ([]*store.WalletCurrency, error) {
 	var (
-		sql     = `select wallet_balances.id,wallet_balances.currency,wallet_balances.balance from wallet_balances join wallets on wallet_balances.wallet_id=wallets.id where wallets.id=$1`
-		wallets []*store.WalletBalance
-		wallet  store.WalletBalance
+		sql = `SELECT
+    	wb.id,
+    	wb.currency,
+    	wb.balance
+		FROM
+    	wallet_balances wb
+		INNER JOIN
+    	wallets w
+		ON
+    	wb.wallet_id = w.id
+		WHERE
+    	w.user_id = $1;`
+		balance []*store.WalletCurrency
 	)
 	rows, err := repo.db.Query(ctx, sql, userid)
 	if err != nil {
@@ -95,14 +106,16 @@ func (repo *PostgresRepo) GetBalance(ctx context.Context, userid int64) ([]*stor
 	defer rows.Close()
 
 	for rows.Next() {
-		err = rows.Scan(&wallet.ID, &wallet.Currency, &wallet.Balance)
+		var currency store.WalletCurrency
+
+		err = rows.Scan(&currency.ID, &currency.Currency, &currency.Balance)
 		if err != nil {
 			return nil, errors.Wrap(err, "failed to scan row")
 		}
-		wallets = append(wallets, &wallet)
+		balance = append(balance, &currency)
 	}
 
-	return wallets, nil
+	return balance, nil
 }
 
 func (repo *PostgresRepo) UpdateBalance(ctx context.Context, newBalance *store.UpdateBalance) error {

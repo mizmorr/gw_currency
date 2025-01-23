@@ -27,7 +27,7 @@ type UpdateBalance struct {
 	Operation string
 }
 
-type WalletBalance struct {
+type WalletCurrency struct {
 	ID        int64
 	WalletID  int64
 	Currency  string
