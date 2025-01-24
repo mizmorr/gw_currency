@@ -22,6 +22,11 @@ type Config struct {
 	JWTtokens
 }
 
+type GRPC struct {
+	Host string
+	Port string
+}
+
 type Listen struct {
 	HttpHost string
 	HttpPort string

@@ -116,6 +116,18 @@ var defaults = []option{
 		value:       "24h",
 		description: "Expiration time for the refresh token",
 	},
+	{
+		name:        "grpc.host",
+		typing:      "string",
+		value:       "localhost",
+		description: "gRPC server host",
+	},
+	{
+		name:        "grpc.port",
+		typing:      "string",
+		value:       "50051",
+		description: "gRPC server port",
+	},
 }
 
 type option struct {
