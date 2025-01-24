@@ -76,8 +76,8 @@ var defaults = []option{
 	},
 	{
 		name:        "storage.redis.port",
-		typing:      "int",
-		value:       6379,
+		typing:      "string",
+		value:       "6379",
 		description: "Redis server port",
 	},
 	{

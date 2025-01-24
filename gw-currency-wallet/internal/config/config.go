@@ -20,6 +20,8 @@ type Config struct {
 	Logger
 
 	JWTtokens
+
+	GRPC
 }
 
 type GRPC struct {
@@ -49,7 +51,7 @@ type Postgres struct {
 
 type Redis struct {
 	Host     string
-	Port     int
+	Port     string
 	Password string
 	DB       int
 }
