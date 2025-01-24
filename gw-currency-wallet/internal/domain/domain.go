@@ -40,18 +40,22 @@ type RateResponse struct {
 }
 
 type ExchangeRequest struct {
-	FromCurrency string  `json:"from_currency"`
-	ToCurrency   string  `json:"to_currency"`
-	Amount       float64 `json:"amount"`
+	BaseCurrency   string  `json:"base_currency"`
+	TargetCurrency string  `json:"target_currency"`
+	Amount         float64 `json:"amount"`
 }
 
 type ExchangeResponse struct {
-	ExchangeAmount float64         `json:"exchange_amount"`
-	Message        string          `json:"message"`
-	NewBalances    []*RateResponse `json:"new_balances"`
+	ExchangeAmount float64            `json:"exchange_amount"`
+	Message        string             `json:"message"`
+	NewBalance     []*BalanceResponse `json:"new_balance"`
 }
 
 type TokenRepsonse struct {
 	Access  string `json:"access"`
 	Refresh string `json:"refresh"`
+}
+
+type RefreshRequest struct {
+	TokenHash string `json:"tokenhash"`
 }
