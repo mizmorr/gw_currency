@@ -2,10 +2,8 @@ package service
 
 import (
 	"context"
-	"fmt"
 	"time"
 
-	grpc_exchange "github.com/mizmorr/grpc_exchange/exchange"
 	"github.com/mizmorr/gw_currency/gw-currency-wallet/internal/domain"
 	"github.com/mizmorr/gw_currency/gw-currency-wallet/internal/mappers"
 	"github.com/mizmorr/gw_currency/gw-currency-wallet/internal/store"
@@ -135,13 +133,13 @@ func (ws *WalletService) isBalanceEnough(ctx context.Context, userid int64, curr
 	return true, nil
 }
 
-func (ws *WalletService) ExchangeRates(_ context.Context) ([]*domain.RateResponse, error) {
-	response, err := ws.grpc.GetAllRates()
+func (ws *WalletService) ExchangeRates(ctx context.Context) ([]*domain.RateResponse, error) {
+	response, err := ws.exchanger.GetExchangeRates(ctx)
 	if err != nil {
 		return nil, err
 	}
 
-	return mappers.ToDomainRatesResponse(response), nil
+	return response, nil
 }
 
 func (ws *WalletService) Exchange(ctx context.Context, userid int64, req *domain.ExchangeRequest) (*domain.ExchangeResponse, error) {
@@ -152,19 +150,18 @@ func (ws *WalletService) Exchange(ctx context.Context, userid int64, req *domain
 	if !isEnough {
 		return nil, errors.New("Insufficient funds")
 	}
-	responseRate, err := ws.grpc.GetAllRates()
+
+	baseCurrencyRate, err := ws.exchanger.GetExchangeRate(ctx, req.BaseCurrency)
 	if err != nil {
 		return nil, err
 	}
 
-	fromRate, toRate, err := ws.prepareRates(responseRate, req.BaseCurrency, req.TargetCurrency)
+	targetCurrencyRate, err := ws.exchanger.GetExchangeRate(ctx, req.TargetCurrency)
 	if err != nil {
 		return nil, err
 	}
 
-	valueTpDeposit := ws.convertCurrency(req.Amount, fromRate, toRate)
-
-	fmt.Println(valueTpDeposit)
+	valueTpDeposit := ws.convertCurrency(req.Amount, baseCurrencyRate.Value, targetCurrencyRate.Value)
 
 	err = ws.makeTransfer(ctx, req.BaseCurrency, req.TargetCurrency, req.Amount, valueTpDeposit, userid)
 	if err != nil {
@@ -180,22 +177,6 @@ func (ws *WalletService) Exchange(ctx context.Context, userid int64, req *domain
 		ExchangeAmount: valueTpDeposit,
 		NewBalance:     mappers.ToDomainBalance(newBalance),
 	}, nil
-}
-
-func (ws *WalletService) prepareRates(resp *grpc_exchange.ExchangeRatesResponse,
-	fromCurrency, toCurrency string,
-) (fromRate, toRate float64, err error) {
-	fromRate, err = mappers.GetRateOfCurrency(resp, fromCurrency)
-	if err != nil {
-		return 0, 0, err
-	}
-
-	toRate, err = mappers.GetRateOfCurrency(resp, toCurrency)
-	if err != nil {
-		return 0, 0, err
-	}
-
-	return
 }
 
 func (ws *WalletService) convertCurrency(amount float64, rateFrom float64, rateTo float64) float64 {

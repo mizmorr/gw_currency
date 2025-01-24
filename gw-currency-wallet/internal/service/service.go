@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 
-	grpc_exchange "github.com/mizmorr/grpc_exchange/exchange"
 	"github.com/mizmorr/gw_currency/gw-currency-wallet/internal/config"
+	"github.com/mizmorr/gw_currency/gw-currency-wallet/internal/domain"
 	"github.com/mizmorr/gw_currency/gw-currency-wallet/internal/store"
 )
 
@@ -22,25 +22,21 @@ type Repository interface {
 	Stop(ctx context.Context) error
 }
 
-type Cash interface{}
-
-type ClientGRPC interface {
-	GetAllRates() (*grpc_exchange.ExchangeRatesResponse, error)
-	GetSpecificRate(code string) (*grpc_exchange.ExchangeRateResponse, error)
+type RateExchanger interface {
+	GetExchangeRate(ctx context.Context, currencyCode string) (*domain.RateResponse, error)
+	GetExchangeRates(ctx context.Context) ([]*domain.RateResponse, error)
 }
 
 type WalletService struct {
-	repo    Repository
-	cash    Cash
-	optsJWT config.JWTtokens
-	grpc    ClientGRPC
+	repo      Repository
+	optsJWT   config.JWTtokens
+	exchanger RateExchanger
 }
 
-func New(repo Repository, cash Cash, tokensOpt config.JWTtokens, client ClientGRPC) *WalletService {
+func New(repo Repository, exch RateExchanger, tokensOpt config.JWTtokens) *WalletService {
 	return &WalletService{
-		repo:    repo,
-		cash:    cash,
-		optsJWT: tokensOpt,
-		grpc:    client,
+		repo:      repo,
+		exchanger: exch,
+		optsJWT:   tokensOpt,
 	}
 }
