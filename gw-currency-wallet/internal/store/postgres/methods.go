@@ -55,7 +55,7 @@ func (repo *PostgresRepo) Authentication(ctx context.Context, user *store.User) 
 		userID   int64
 	)
 
-	err := repo.db.QueryRow(ctx, sql, user.Username).Scan(&password)
+	err := repo.db.QueryRow(ctx, sql, user.Username).Scan(&userID, &password)
 	if err != nil {
 		return 0, errors.Wrap(err, "invalid credentials")
 	}
@@ -68,7 +68,7 @@ func (repo *PostgresRepo) Authentication(ctx context.Context, user *store.User) 
 }
 
 func (repo *PostgresRepo) SetToken(ctx context.Context, refresh *store.RefreshToken) error {
-	err := repo.createRefreshToken(ctx, refresh.ExpiresAt, refresh.RefreshHash, refresh.UserID)
+	err := repo.createRefreshToken(ctx, refresh.ExpiresAt, refresh.Hash, refresh.UserID)
 	if err != nil {
 		return errors.Wrap(err, "invalid refresh token")
 	}
@@ -77,10 +77,37 @@ func (repo *PostgresRepo) SetToken(ctx context.Context, refresh *store.RefreshTo
 }
 
 func (repo *PostgresRepo) createRefreshToken(ctx context.Context, expTime time.Time, refreshToken string, userid int64) error {
-	sql := `INSERT into refresh_tokens(user_id,refresh_hash,expires_at, revoked) VALUES
+	sql := `INSERT into refresh_tokens(user_id,token_hash,expires_at, revoked) VALUES
 	($1,$2,$3,false)`
 	_, err := repo.db.Exec(ctx, sql, userid, refreshToken, expTime)
 	return err
+}
+
+func (repo *PostgresRepo) GetSpecificCurrency(ctx context.Context, req *store.CurrencyRequest) (*store.WalletCurrency, error) {
+	var (
+		sql = `SELECT
+    	wb.id,
+    	wb.currency,
+    	wb.balance
+		FROM
+    	wallet_balances wb
+		INNER JOIN
+    	wallets w
+		ON
+    	wb.wallet_id = w.id
+		WHERE
+    	w.user_id = $1 AND
+    	wb.currency = $2;`
+		balance store.WalletCurrency
+	)
+	err := repo.db.QueryRow(ctx, sql, req.UserID, req.CurrencyCode).Scan(&balance.ID, &balance.Currency, &balance.Balance)
+	if err == pgx.ErrNoRows {
+		return nil, errors.New("currency not found")
+	} else if err != nil {
+		return nil, errors.Wrap(err, "failed to query currency")
+	}
+
+	return &balance, nil
 }
 
 func (repo *PostgresRepo) GetBalance(ctx context.Context, userid int64) ([]*store.WalletCurrency, error) {
@@ -199,6 +226,34 @@ func (repo *PostgresRepo) makeExchange(ctx context.Context, tx pgx.Tx, exchangeB
 	_, err = tx.Exec(ctx, repo.getSqlForChangeBalance("+"), exchangeBody.ToAmount, exchangeBody.ToCurrency, exchangeBody.UserID)
 	if err != nil {
 		return errors.Wrap(err, "failed to update target currency balance")
+	}
+	return nil
+}
+
+func (repo *PostgresRepo) CheckRefreshToken(ctx context.Context, token *store.RefreshToken) error {
+	sql := `SELECT 1
+FROM refresh_tokens
+WHERE user_id = $1
+  AND token_hash = $2
+  AND expires_at > NOW()
+LIMIT 1;`
+
+	var exists int
+
+	err := repo.db.QueryRow(ctx, sql, token.UserID, token.Hash).Scan(&exists)
+
+	return repo.handleRefreshTokenRepsonse(err, exists)
+}
+
+func (repo *PostgresRepo) handleRefreshTokenRepsonse(err error, exists int) error {
+	if err == pgx.ErrNoRows {
+		return errors.New("Token not found")
+	}
+	if err != nil {
+		return errors.Wrap(err, "failed to check refresh token")
+	}
+	if exists == 0 {
+		return errors.New("Token has been revoked")
 	}
 	return nil
 }
