@@ -36,12 +36,12 @@ type WalletCurrency struct {
 }
 
 type RefreshToken struct {
-	ID          int64
-	UserID      int64
-	RefreshHash string
-	ExpiresAt   time.Time
-	Revoked     bool
-	CreatedAt   time.Time
+	ID        int64
+	UserID    int64
+	Hash      string
+	ExpiresAt time.Time
+	Revoked   bool
+	CreatedAt time.Time
 }
 
 type ExchangeBalance struct {
@@ -50,4 +50,9 @@ type ExchangeBalance struct {
 	FromAmount   float64
 	ToCurrency   string
 	ToAmount     float64
+}
+
+type CurrencyRequest struct {
+	UserID       int64
+	CurrencyCode string
 }
