@@ -1,6 +1,8 @@
 package mappers
 
 import (
+	"errors"
+
 	grpc_exchange "github.com/mizmorr/grpc_exchange/exchange"
 	"github.com/mizmorr/gw_currency/gw-currency-wallet/internal/domain"
 )
@@ -27,4 +29,13 @@ func exchangeRateToDomain(rate *grpc_exchange.ExchangeRate) *domain.RateResponse
 		CurrencyCode: rate.CurrencyCode,
 		Value:        rate.Rate,
 	}
+}
+
+func GetRateOfCurrency(resp *grpc_exchange.ExchangeRatesResponse, currencyCode string) (float64, error) {
+	for _, rate := range resp.Rates {
+		if rate.CurrencyCode == currencyCode {
+			return rate.Rate, nil
+		}
+	}
+	return 0, errors.New("No such currency found")
 }
