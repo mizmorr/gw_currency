@@ -40,3 +40,11 @@ func New(repo Repository, exch RateExchanger, tokensOpt config.JWTtokens) *Walle
 		optsJWT:   tokensOpt,
 	}
 }
+
+func (ws *WalletService) Start(ctx context.Context) error {
+	return ws.repo.Start(ctx)
+}
+
+func (ws *WalletService) Stop(ctx context.Context) error {
+	return ws.repo.Stop(ctx)
+}
