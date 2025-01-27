@@ -1,18 +1,18 @@
 package domain
 
 type RegisterRequest struct {
-	Username string `json:"username"`
-	Email    string `json:"email"`
-	Password string `json:"password"`
+	Username string `json:"username" binding:"required"`
+	Email    string `json:"email" binding:"required"`
+	Password string `json:"password" binding:"required"`
 }
 
-type RegisterRespone struct {
+type RegisterResponse struct {
 	Message string `json:"message"`
 }
 
-type AuthorizationRequst struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
+type AuthorizationRequest struct {
+	Username string `json:"username" binding:"required"`
+	Password string `json:"password" binding:"required"`
 }
 
 type AuthorizationResponse struct {
@@ -20,29 +20,29 @@ type AuthorizationResponse struct {
 }
 
 type BalanceResponse struct {
-	Currency string  `json:"currency"`
-	Value    float64 `json:"value"`
+	Currency string  `json:"currency" binding:"required"`
+	Value    float64 `json:"value" binding:"required"`
 }
 
 type DepositRequest struct {
-	Currency string  `json:"currency"`
-	Amount   float64 `json:"amount"`
+	Currency string  `json:"currency" binding:"required"`
+	Amount   float64 `json:"amount" binding:"required"`
 }
 
 type WithdrawRequest struct {
-	Currency string  `json:"currency"`
-	Amount   float64 `json:"amount"`
+	Currency string  `json:"currency" binding:"required"`
+	Amount   float64 `json:"amount" binding:"required"`
 }
 
 type RateResponse struct {
-	CurrencyCode string  `json:"currency_code"`
-	Value        float64 `json:"value"`
+	CurrencyCode string  `json:"currency_code" binding:"required"`
+	Value        float64 `json:"value" binding:"required"`
 }
 
 type ExchangeRequest struct {
-	BaseCurrency   string  `json:"base_currency"`
-	TargetCurrency string  `json:"target_currency"`
-	Amount         float64 `json:"amount"`
+	BaseCurrency   string  `json:"base_currency" binding:"required"`
+	TargetCurrency string  `json:"target_currency" binding:"required"`
+	Amount         float64 `json:"amount" binding:"required"`
 }
 
 type ExchangeResponse struct {
@@ -51,11 +51,11 @@ type ExchangeResponse struct {
 	NewBalance     []*BalanceResponse `json:"new_balance"`
 }
 
-type TokenRepsonse struct {
+type TokenResponse struct {
 	Access  string `json:"access"`
 	Refresh string `json:"refresh"`
 }
 
 type RefreshRequest struct {
-	TokenHash string `json:"tokenhash"`
+	TokenHash string `json:"tokenhash" binding:"required"`
 }
