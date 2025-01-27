@@ -12,7 +12,7 @@ import (
 	logger "github.com/mizmorr/loggerm"
 )
 
-type companent struct {
+type component struct {
 	Name    string
 	Service lifecycle.Lifecycle
 }
@@ -20,25 +20,26 @@ type companent struct {
 type App struct {
 	log    *logger.Logger
 	config *config.Config
-	comps  []companent
-	ctx    context.Context
+	comps  []component
 }
 
-func New(c context.Context) *App {
+func New() *App {
 	var (
 		config = config.Get()
 		log    = logger.Get(config.PathFile, config.Level)
-		ctx    = context.WithValue(c, "logger", log)
 	)
 	return &App{
 		log:    log,
 		config: config,
-		ctx:    ctx,
 	}
 }
 
-func (a *App) Start() error {
-	repo, err := pg.NewPostgresRepo(a.ctx)
+func (a *App) Start(ctx context.Context) error {
+	if _, ok := ctx.Value("logger").(*logger.Logger); !ok {
+		ctx = context.WithValue(ctx, "logger", a.log)
+	}
+
+	repo, err := pg.NewPostgresRepo(ctx)
 	if err != nil {
 		return err
 	}
@@ -47,20 +48,20 @@ func (a *App) Start() error {
 
 	control := controller.NewExchangeController(svc)
 
-	server, err := server.New(a.ctx, control, a.config.Host, string(a.config.Port))
+	server, err := server.New(ctx, control, a.config.Host, string(a.config.Port))
 	if err != nil {
 		return err
 	}
 	okCh, errCh := make(chan interface{}), make(chan error)
 
-	a.comps = []companent{
+	a.comps = []component{
 		{Name: "server", Service: server},
 		{Name: "service", Service: svc},
 	}
 
 	go func() {
 		for _, comp := range a.comps {
-			err := comp.Service.Start(a.ctx)
+			err := comp.Service.Start(ctx)
 			if err != nil {
 				errCh <- err
 				return
@@ -77,12 +78,18 @@ func (a *App) Start() error {
 	}
 }
 
-func (a *App) Stop() error {
-	a.log.Info().Msg("Graceful shoutdown is running..")
+func (a *App) Stop(ctx context.Context) error {
+	if _, ok := ctx.Value("logger").(*logger.Logger); !ok {
+		ctx = context.WithValue(ctx, "logger", a.log)
+	}
+
+	a.log.Info().Msg("Graceful shutdown is running..")
+
 	okCh, errCh := make(chan interface{}), make(chan error)
+
 	go func() {
 		for _, comp := range a.comps {
-			err := comp.Service.Stop(a.ctx)
+			err := comp.Service.Stop(ctx)
 			if err != nil {
 				errCh <- err
 			}
@@ -93,7 +100,7 @@ func (a *App) Stop() error {
 	case err := <-errCh:
 		return err
 	case <-okCh:
-		a.log.Info().Msg("Service stopped")
+		a.log.Info().Msg("Exchange service is stopped")
 		return nil
 	}
 }

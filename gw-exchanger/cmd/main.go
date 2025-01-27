@@ -17,9 +17,9 @@ func main() {
 
 func execute() error {
 	ctx := context.Background()
-	app := app.New(ctx)
+	app := app.New()
 
-	if err := app.Start(); err != nil {
+	if err := app.Start(ctx); err != nil {
 		return err
 	}
 
@@ -27,5 +27,5 @@ func execute() error {
 	signal.Notify(stopCh, os.Interrupt, syscall.SIGINT, syscall.SIGTERM, syscall.SIGHUP)
 
 	<-stopCh
-	return app.Stop()
+	return app.Stop(ctx)
 }
