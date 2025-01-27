@@ -20,7 +20,7 @@ func (ws *WalletService) RegisterUser(ctx context.Context, user *domain.Register
 	return ws.repo.CreateUser(ctx, storeUser)
 }
 
-func (ws *WalletService) LoginUser(ctx context.Context, user *domain.AuthorizationRequst) (*domain.TokenRepsonse, error) {
+func (ws *WalletService) LoginUser(ctx context.Context, user *domain.AuthorizationRequest) (*domain.TokenResponse, error) {
 	storeUser, err := mappers.ToStoreUserFromAuthorize(user)
 	if err != nil {
 		return nil, err
@@ -39,7 +39,7 @@ func (ws *WalletService) LoginUser(ctx context.Context, user *domain.Authorizati
 	if err != nil {
 		return nil, err
 	}
-	return &domain.TokenRepsonse{
+	return &domain.TokenResponse{
 		Access:  access,
 		Refresh: refresh,
 	}, nil
@@ -197,7 +197,7 @@ func (ws *WalletService) makeTransfer(ctx context.Context,
 	return ws.repo.ExchangeCurrency(ctx, storeExchangeReq)
 }
 
-func (ws *WalletService) Refresh(ctx context.Context, req *domain.RefreshRequest) (*domain.TokenRepsonse, error) {
+func (ws *WalletService) Refresh(ctx context.Context, req *domain.RefreshRequest) (*domain.TokenResponse, error) {
 	err := jwttoken.Validate(req.TokenHash, []byte(ws.optsJWT.RefreshSecret))
 	if err != nil {
 		return nil, errors.Wrap(err, "The time of existence has expired. You need to log in again")
@@ -223,7 +223,7 @@ func (ws *WalletService) Refresh(ctx context.Context, req *domain.RefreshRequest
 		return nil, err
 	}
 
-	return &domain.TokenRepsonse{
+	return &domain.TokenResponse{
 		Access:  access,
 		Refresh: req.TokenHash,
 	}, nil

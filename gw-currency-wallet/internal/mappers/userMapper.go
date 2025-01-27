@@ -18,7 +18,7 @@ func ToStoreUserFromRegister(userReq *domain.RegisterRequest) (*store.User, erro
 	}, nil
 }
 
-func ToStoreUserFromAuthorize(userReq *domain.AuthorizationRequst) (*store.User, error) {
+func ToStoreUserFromAuthorize(userReq *domain.AuthorizationRequest) (*store.User, error) {
 	if userReq == nil {
 		return nil, errors.New("user request is nil")
 	}

@@ -17,9 +17,6 @@ type Repository interface {
 	ExchangeCurrency(ctx context.Context, exchangeBody *store.ExchangeBalance) error
 	GetSpecificCurrency(ctx context.Context, req *store.CurrencyRequest) (*store.WalletCurrency, error)
 	CheckRefreshToken(ctx context.Context, token *store.RefreshToken) error
-
-	Start(ctx context.Context) error
-	Stop(ctx context.Context) error
 }
 
 type RateExchanger interface {
@@ -39,12 +36,4 @@ func New(repo Repository, exch RateExchanger, tokensOpt config.JWTtokens) *Walle
 		exchanger: exch,
 		optsJWT:   tokensOpt,
 	}
-}
-
-func (ws *WalletService) Start(ctx context.Context) error {
-	return ws.repo.Start(ctx)
-}
-
-func (ws *WalletService) Stop(ctx context.Context) error {
-	return ws.repo.Stop(ctx)
 }

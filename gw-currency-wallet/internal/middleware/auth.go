@@ -26,12 +26,12 @@ func JWTAuthMiddleware(secretKey string) gin.HandlerFunc {
 
 		err := jwttoken.Validate(tokenString, []byte(secretKey))
 		if err != nil {
-			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": err})
+			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": err.Error()})
 			return
 		}
 		userID, err := jwttoken.GetUserID(tokenString, []byte(secretKey))
 		if err != nil {
-			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": err})
+			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": err.Error()})
 			return
 		}
 		c.Set("user_id", userID)
