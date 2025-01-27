@@ -9,8 +9,8 @@ import (
 )
 
 type RemoteExchanger interface {
-	GetAllRates() (*pb.ExchangeRatesResponse, error)
-	GetSpecificRate(code string) (*pb.ExchangeRateResponse, error)
+	GetAllRates(ctx context.Context) (*pb.ExchangeRatesResponse, error)
+	GetSpecificRate(ctx context.Context, code string) (*pb.ExchangeRateResponse, error)
 }
 
 type Cash interface {
@@ -39,7 +39,7 @@ func (c *Exchanger) GetExchangeRate(ctx context.Context, currencyCode string) (*
 		return &domain.RateResponse{CurrencyCode: currencyCode, Value: rate}, nil
 	}
 
-	rate, err := c.remote.GetSpecificRate(currencyCode)
+	rate, err := c.remote.GetSpecificRate(ctx, currencyCode)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +85,7 @@ func (e *Exchanger) scanCash(ctx context.Context) (notFound []string, result []*
 
 func (e *Exchanger) mediumPath(ctx context.Context, codes []string, result []*domain.RateResponse) ([]*domain.RateResponse, error) {
 	for _, currencyCode := range codes {
-		rate, err := e.remote.GetSpecificRate(currencyCode)
+		rate, err := e.remote.GetSpecificRate(ctx, currencyCode)
 		if err != nil {
 			return nil, err
 		}
@@ -100,7 +100,7 @@ func (e *Exchanger) mediumPath(ctx context.Context, codes []string, result []*do
 }
 
 func (e *Exchanger) slowPath(ctx context.Context, result []*domain.RateResponse) ([]*domain.RateResponse, error) {
-	rates, err := e.remote.GetAllRates()
+	rates, err := e.remote.GetAllRates(ctx)
 	if err != nil {
 		return nil, err
 	}
