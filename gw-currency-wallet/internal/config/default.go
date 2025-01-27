@@ -25,6 +25,12 @@ var defaults = []option{
 		value:       "8080",
 		description: "Server port",
 	},
+	{
+		name:        "listen.shutdowntimeout",
+		typing:      "duration",
+		value:       "5s",
+		description: "Timeout for graceful shutdown",
+	},
 
 	{
 		name:        "storage.postgres.URL",
@@ -93,15 +99,21 @@ var defaults = []option{
 		description: "Redis database index",
 	},
 	{
+		name:        "storage.redis.ttl",
+		typing:      "duration",
+		value:       "10m",
+		description: "Time-to-live for Redis keys",
+	},
+	{
 		name:        "jwttokens.refreshSecret",
 		typing:      "string",
-		value:       "w@X7pN9!kL2eD$3fQv8yR&Z6tUj4HbG^T0#CaV5mYxJ8LpKdR",
+		value:       "1g3VxO3ILNcu2kxIw5166lSIb+y2iVqPuB+hHll1b1tx9QPtaQiF/+PdkYrbG+DMabrSowIk1WzAtaLkQPUcMQ==",
 		description: "Secret for refreshing the access token",
 	},
 	{
 		name:        "jwttokens.accessSecret",
 		typing:      "string",
-		value:       "4F#yLt@Q2pW9!n3KzV8RbY^CaX0J6m&kdUXH7v5PL!ZtjDR",
+		value:       "WNlxDQGlnzsRpK8saejc39A9K7mVVRRyPM3ZDWY7E+z/ANvaDLMhp8dLktvjgLE3l8UZLfjtK1Q047G0gY0zDw==",
 		description: "Secret for accessing the API",
 	},
 	{
@@ -127,6 +139,12 @@ var defaults = []option{
 		typing:      "string",
 		value:       "50051",
 		description: "gRPC server port",
+	},
+	{
+		name:        "rates.currencycodes",
+		typing:      "slice",
+		value:       []string{"USD", "RUB", "EUR"},
+		description: "List of supported currencies",
 	},
 }
 

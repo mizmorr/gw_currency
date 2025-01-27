@@ -22,6 +22,12 @@ type Config struct {
 	JWTtokens
 
 	GRPC
+
+	Rates
+}
+
+type Rates struct {
+	CurrencyCodes []string
 }
 
 type GRPC struct {
@@ -30,8 +36,9 @@ type GRPC struct {
 }
 
 type Listen struct {
-	HttpHost string
-	HttpPort string
+	HttpHost        string
+	HttpPort        string
+	ShutdownTimeout time.Duration
 }
 
 type Storage struct {
@@ -54,6 +61,7 @@ type Redis struct {
 	Port     string
 	Password string
 	DB       int
+	TTL      time.Duration
 }
 
 type Worker struct {
@@ -100,6 +108,8 @@ func setDefaults() {
 			viper.SetDefault(o.name, o.value.(string))
 		case "int":
 			viper.SetDefault(o.name, o.value.(int))
+		case "slice":
+			viper.SetDefault(o.name, o.value.([]string))
 		default:
 			viper.SetDefault(o.name, o.value)
 		}
