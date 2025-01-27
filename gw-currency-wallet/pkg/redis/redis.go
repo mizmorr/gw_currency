@@ -3,7 +3,6 @@ package redis
 import (
 	"context"
 	"fmt"
-	"log"
 	"strconv"
 	"time"
 
@@ -21,14 +20,24 @@ func NewRedisClient(ctx context.Context, host, port, password string) *RedisClie
 		DB:       0,
 	})
 
-	_, err := rdb.Ping(ctx).Result()
-	if err != nil {
-		log.Fatalf("Failed to connect to Redis: %v", err)
-	}
-
 	return &RedisClient{
 		Client: rdb,
 	}
+}
+
+func (r *RedisClient) Start(ctx context.Context) error {
+	_, err := r.Client.Ping(ctx).Result()
+	if err != nil {
+		return fmt.Errorf("failed to connect to Redis: %w", err)
+	}
+	return nil
+}
+
+func (r *RedisClient) Stop(_ context.Context) error {
+	if err := r.Client.Close(); err != nil {
+		return fmt.Errorf("failed to close Redis connection: %w", err)
+	}
+	return nil
 }
 
 func (r *RedisClient) Set(ctx context.Context, key string, value float64, expiration time.Duration) error {
