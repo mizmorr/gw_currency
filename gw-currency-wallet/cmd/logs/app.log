@@ -711,3 +711,458 @@
 27 Jan 25 11:44 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
 27 Jan 25 11:44 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
 27 Jan 25 11:44 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+27 Jan 25 23:20 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+27 Jan 25 23:20 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+27 Jan 25 23:20 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+27 Jan 25 23:20 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+27 Jan 25 23:20 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+27 Jan 25 23:20 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+27 Jan 25 23:20 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+27 Jan 25 23:20 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+27 Jan 25 23:20 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+27 Jan 25 23:20 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+27 Jan 25 23:20 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+27 Jan 25 23:20 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+27 Jan 25 23:20 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+27 Jan 25 23:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+27 Jan 25 23:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+27 Jan 25 23:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+27 Jan 25 23:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+27 Jan 25 23:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+27 Jan 25 23:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+27 Jan 25 23:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+27 Jan 25 23:28 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+27 Jan 25 23:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+27 Jan 25 23:28 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+27 Jan 25 23:28 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+27 Jan 25 23:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+27 Jan 25 23:28 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+27 Jan 25 23:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+27 Jan 25 23:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+27 Jan 25 23:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+27 Jan 25 23:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+27 Jan 25 23:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+27 Jan 25 23:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+27 Jan 25 23:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+27 Jan 25 23:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+27 Jan 25 23:38 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+27 Jan 25 23:38 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+27 Jan 25 23:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+27 Jan 25 23:38 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+27 Jan 25 23:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+27 Jan 25 23:38 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+27 Jan 25 23:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+27 Jan 25 23:40 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+27 Jan 25 23:40 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+27 Jan 25 23:40 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+27 Jan 25 23:40 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+27 Jan 25 23:40 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+27 Jan 25 23:40 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+27 Jan 25 23:40 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+27 Jan 25 23:47 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+27 Jan 25 23:47 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+27 Jan 25 23:47 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+27 Jan 25 23:47 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+27 Jan 25 23:47 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+27 Jan 25 23:47 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+27 Jan 25 23:47 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+27 Jan 25 23:47 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+27 Jan 25 23:47 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+27 Jan 25 23:47 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+27 Jan 25 23:47 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+27 Jan 25 23:47 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+27 Jan 25 23:47 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+27 Jan 25 23:47 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+27 Jan 25 23:56 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+27 Jan 25 23:56 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+27 Jan 25 23:56 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+27 Jan 25 23:56 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+27 Jan 25 23:56 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+27 Jan 25 23:56 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+27 Jan 25 23:56 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+27 Jan 25 23:59 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+27 Jan 25 23:59 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+27 Jan 25 23:59 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+27 Jan 25 23:59 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+28 Jan 25 00:00 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+28 Jan 25 00:00 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+28 Jan 25 00:00 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+28 Jan 25 00:00 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+28 Jan 25 00:00 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+28 Jan 25 00:00 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+28 Jan 25 00:00 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+28 Jan 25 00:01 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+28 Jan 25 00:01 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+28 Jan 25 00:01 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+28 Jan 25 00:01 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+28 Jan 25 00:01 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+28 Jan 25 00:01 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+28 Jan 25 00:01 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+28 Jan 25 00:04 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+28 Jan 25 00:04 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+28 Jan 25 00:04 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+28 Jan 25 00:04 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+28 Jan 25 00:04 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+28 Jan 25 00:04 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+28 Jan 25 00:04 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+28 Jan 25 00:04 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+28 Jan 25 00:04 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+28 Jan 25 00:04 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+28 Jan 25 00:04 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+28 Jan 25 00:04 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+28 Jan 25 00:04 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+28 Jan 25 00:04 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+28 Jan 25 00:04 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+28 Jan 25 00:04 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+28 Jan 25 00:04 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+28 Jan 25 00:04 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+28 Jan 25 00:04 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+28 Jan 25 00:04 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+28 Jan 25 00:04 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+28 Jan 25 00:06 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+28 Jan 25 00:06 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+28 Jan 25 00:06 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+28 Jan 25 00:06 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+28 Jan 25 00:06 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+28 Jan 25 00:06 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+28 Jan 25 00:06 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+28 Jan 25 00:06 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+28 Jan 25 00:06 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+28 Jan 25 00:06 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+28 Jan 25 00:06 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+28 Jan 25 00:06 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+28 Jan 25 00:06 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+28 Jan 25 00:06 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+28 Jan 25 00:07 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+28 Jan 25 00:07 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+28 Jan 25 00:07 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+28 Jan 25 00:07 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+28 Jan 25 00:07 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+28 Jan 25 00:07 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+28 Jan 25 00:07 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+28 Jan 25 00:07 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+28 Jan 25 00:07 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+28 Jan 25 00:07 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+28 Jan 25 00:07 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+28 Jan 25 00:07 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+28 Jan 25 00:07 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+28 Jan 25 00:07 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+28 Jan 25 00:10 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+28 Jan 25 00:10 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+28 Jan 25 00:10 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+28 Jan 25 00:10 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+28 Jan 25 00:12 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+28 Jan 25 00:12 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+28 Jan 25 00:12 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+28 Jan 25 00:12 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+28 Jan 25 00:12 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+28 Jan 25 00:12 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+28 Jan 25 00:12 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+28 Jan 25 00:12 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+28 Jan 25 00:12 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+28 Jan 25 00:12 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+28 Jan 25 00:12 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+28 Jan 25 00:12 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+28 Jan 25 00:12 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+28 Jan 25 00:12 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+28 Jan 25 00:13 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+28 Jan 25 00:13 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+28 Jan 25 00:13 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+28 Jan 25 00:13 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+28 Jan 25 00:13 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+28 Jan 25 00:13 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+28 Jan 25 00:13 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+28 Jan 25 00:14 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+28 Jan 25 00:14 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+28 Jan 25 00:14 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+28 Jan 25 00:14 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+28 Jan 25 00:14 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+28 Jan 25 00:14 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+28 Jan 25 00:14 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+28 Jan 25 00:15 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+28 Jan 25 00:15 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+28 Jan 25 00:15 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+28 Jan 25 00:15 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+28 Jan 25 00:15 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+28 Jan 25 00:15 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+28 Jan 25 00:15 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+28 Jan 25 00:15 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+28 Jan 25 00:15 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+28 Jan 25 00:15 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+28 Jan 25 00:15 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+28 Jan 25 00:15 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+28 Jan 25 00:15 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+28 Jan 25 00:15 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+28 Jan 25 00:16 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+28 Jan 25 00:16 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+28 Jan 25 00:16 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+28 Jan 25 00:16 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+28 Jan 25 00:16 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+28 Jan 25 00:16 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+28 Jan 25 00:16 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+28 Jan 25 00:17 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+28 Jan 25 00:17 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+28 Jan 25 00:17 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+28 Jan 25 00:17 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+28 Jan 25 00:17 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+28 Jan 25 00:17 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+28 Jan 25 00:17 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+28 Jan 25 00:17 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+28 Jan 25 00:17 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+28 Jan 25 00:17 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+28 Jan 25 00:17 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+28 Jan 25 00:17 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+28 Jan 25 00:17 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+28 Jan 25 00:17 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+28 Jan 25 00:17 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+28 Jan 25 00:17 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+28 Jan 25 00:17 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+28 Jan 25 00:17 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+28 Jan 25 00:18 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+28 Jan 25 00:18 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+28 Jan 25 00:18 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+28 Jan 25 00:18 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+28 Jan 25 00:18 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+28 Jan 25 00:18 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+28 Jan 25 00:18 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+28 Jan 25 00:18 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+28 Jan 25 00:18 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+28 Jan 25 00:18 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+28 Jan 25 00:18 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+28 Jan 25 00:18 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+28 Jan 25 00:18 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+28 Jan 25 00:18 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+28 Jan 25 00:18 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+28 Jan 25 00:18 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+28 Jan 25 00:18 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+29 Jan 25 00:25 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+29 Jan 25 00:25 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+29 Jan 25 00:25 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+29 Jan 25 00:25 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+29 Jan 25 00:25 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+29 Jan 25 00:25 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+29 Jan 25 00:25 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+29 Jan 25 00:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+29 Jan 25 00:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+29 Jan 25 00:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+29 Jan 25 00:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+29 Jan 25 00:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+29 Jan 25 00:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+29 Jan 25 00:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+29 Jan 25 00:26 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+29 Jan 25 00:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+29 Jan 25 00:26 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+29 Jan 25 00:26 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+29 Jan 25 00:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+29 Jan 25 00:26 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+29 Jan 25 00:26 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+29 Jan 25 00:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+29 Jan 25 00:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+29 Jan 25 00:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+29 Jan 25 00:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+29 Jan 25 00:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+29 Jan 25 00:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+29 Jan 25 00:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+29 Jan 25 00:28 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+29 Jan 25 00:28 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+29 Jan 25 00:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+29 Jan 25 00:28 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+29 Jan 25 00:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+29 Jan 25 00:28 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+29 Jan 25 00:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+29 Jan 25 00:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+29 Jan 25 00:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+29 Jan 25 00:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+29 Jan 25 00:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+29 Jan 25 00:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+29 Jan 25 00:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+29 Jan 25 00:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+29 Jan 25 00:30 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+29 Jan 25 00:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+29 Jan 25 00:30 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+29 Jan 25 00:30 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+29 Jan 25 00:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+29 Jan 25 00:30 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+29 Jan 25 00:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+29 Jan 25 00:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+29 Jan 25 00:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+29 Jan 25 00:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+29 Jan 25 00:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+29 Jan 25 00:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+29 Jan 25 00:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+29 Jan 25 00:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+29 Jan 25 00:33 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+29 Jan 25 00:33 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+29 Jan 25 00:33 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+29 Jan 25 00:33 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+29 Jan 25 00:33 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+29 Jan 25 00:33 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+29 Jan 25 00:33 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+29 Jan 25 00:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+29 Jan 25 00:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+29 Jan 25 00:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+29 Jan 25 00:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+29 Jan 25 00:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+29 Jan 25 00:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+29 Jan 25 00:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+29 Jan 25 00:38 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+29 Jan 25 00:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+29 Jan 25 00:38 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+29 Jan 25 00:38 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+29 Jan 25 00:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+29 Jan 25 00:38 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+29 Jan 25 00:38 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+29 Jan 25 00:44 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+29 Jan 25 00:44 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+29 Jan 25 00:44 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+29 Jan 25 00:44 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+29 Jan 25 00:44 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+29 Jan 25 00:44 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+29 Jan 25 00:44 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+29 Jan 25 01:29 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+29 Jan 25 01:29 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+29 Jan 25 01:29 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+29 Jan 25 01:29 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+29 Jan 25 01:29 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+29 Jan 25 01:29 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+29 Jan 25 01:29 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+29 Jan 25 01:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+29 Jan 25 01:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+29 Jan 25 01:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+29 Jan 25 01:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+29 Jan 25 01:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+29 Jan 25 01:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+29 Jan 25 01:30 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+29 Jan 25 01:32 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+29 Jan 25 01:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+29 Jan 25 01:32 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+29 Jan 25 01:32 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+29 Jan 25 01:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+29 Jan 25 01:32 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+29 Jan 25 01:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+29 Jan 25 01:33 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+29 Jan 25 01:33 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+29 Jan 25 01:33 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+29 Jan 25 01:33 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+29 Jan 25 01:33 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+29 Jan 25 01:33 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+29 Jan 25 01:33 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+29 Jan 25 01:34 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+29 Jan 25 01:34 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+29 Jan 25 01:34 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+29 Jan 25 01:34 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+29 Jan 25 01:34 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+29 Jan 25 01:34 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+29 Jan 25 01:34 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+29 Jan 25 01:34 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+29 Jan 25 01:34 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+29 Jan 25 01:34 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+29 Jan 25 01:34 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+29 Jan 25 01:34 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+29 Jan 25 01:34 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+29 Jan 25 01:34 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+29 Jan 25 01:40 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+29 Jan 25 01:40 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+29 Jan 25 01:40 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+29 Jan 25 01:40 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+29 Jan 25 01:40 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+29 Jan 25 01:40 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+29 Jan 25 01:40 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+29 Jan 25 01:41 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:26 | Starting user creation  [36memail=[0mbobdoe@gmail.com [36musername=[0mbobdoename
+29 Jan 25 01:41 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:39 | User created successfully  [36muserID=[0m10
+29 Jan 25 01:41 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:46 | Wallet created successfully  [36mwalletID=[0m8
+29 Jan 25 01:41 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:58 | User and wallet setup completed successfully  [36muserID=[0m10 [36mwalletID=[0m8
+29 Jan 25 01:49 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+29 Jan 25 01:49 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+29 Jan 25 01:49 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+29 Jan 25 01:49 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+29 Jan 25 01:49 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+29 Jan 25 01:49 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+29 Jan 25 01:49 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+29 Jan 25 01:55 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+29 Jan 25 01:55 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+29 Jan 25 01:55 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+29 Jan 25 01:55 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+29 Jan 25 01:55 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+29 Jan 25 01:55 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+29 Jan 25 01:55 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+29 Jan 25 01:55 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:26 | Starting user creation  email=bobd2oe@gmail.com username=bobd2oename
+29 Jan 25 01:55 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:39 | User created successfully  userID=11
+29 Jan 25 01:55 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:46 | Wallet created successfully  walletID=9
+29 Jan 25 01:55 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:58 | User and wallet setup completed successfully  userID=11 walletID=9
+29 Jan 25 01:56 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+29 Jan 25 01:56 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+29 Jan 25 01:56 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+29 Jan 25 01:56 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+29 Jan 25 01:56 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+29 Jan 25 01:56 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+29 Jan 25 01:56 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
+29 Jan 25 02:23 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/db.go:28 | Database config parsing... 
+29 Jan 25 02:23 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:52 | HTTP server keep-alive is running.. 
+29 Jan 25 02:23 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:40 | HTTP server is starting.. 
+29 Jan 25 02:23 MSK | [INFO] | /home/ilyasafonov/go/pkg/mod/github.com/mizmorr/gw_currency/gw-exchanger@v0.0.0-20250118124550-e97935fea605/pkg/utils/connector/postgres.go:23 | Connect to postgres is established 
+29 Jan 25 02:23 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:28 | GRPC client is started 
+29 Jan 25 02:23 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:49 | Keeping database connection alive... 
+29 Jan 25 02:23 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:67 | Service started 
+29 Jan 25 02:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:26 | Starting user creation  email=test@example.com username=testuser
+29 Jan 25 02:28 MSK | [ERROR] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:36 | Failed to insert user into database  error="ERROR: duplicate key value violates unique constraint \"users_username_key\" (SQLSTATE 23505)" username=testuser
+29 Jan 25 02:28 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:69 | Starting authentication  username=testuser
+29 Jan 25 02:28 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:77 | User found in database  userID=2
+29 Jan 25 02:28 MSK | [WARN] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:80 | Incorrect password  username=testuser
+29 Jan 25 02:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:26 | Starting user creation  email=realnewuser@example.com username=realnewuser
+29 Jan 25 02:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:39 | User created successfully  userID=13
+29 Jan 25 02:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:46 | Wallet created successfully  walletID=10
+29 Jan 25 02:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:58 | User and wallet setup completed successfully  userID=13 walletID=10
+29 Jan 25 02:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:69 | Starting authentication  username=realnewuser
+29 Jan 25 02:32 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:77 | User found in database  userID=13
+29 Jan 25 02:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:84 | Authentication successful  userID=13
+29 Jan 25 02:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:89 | Setting refresh token  userID=13
+29 Jan 25 02:32 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:99 | Creating refresh token  userID=13
+29 Jan 25 02:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:179 | Updating balance  currency=USD operation=deposit userID=13
+29 Jan 25 02:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:140 | Fetching wallet balance  userID=13
+29 Jan 25 02:32 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:173 | Wallet balance fetched successfully  count=3
+29 Jan 25 02:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:110 | Fetching specific currency  currency=USD userID=13
+29 Jan 25 02:32 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:135 | Currency retrieved successfully  balance={"Balance":1000,"Currency":"USD","ID":30,"UpdatedAt":"0001-01-01T00:00:00Z","WalletID":0}
+29 Jan 25 02:32 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:140 | Fetching wallet balance  userID=13
+29 Jan 25 02:32 MSK | [DEBUG] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/methods.go:173 | Wallet balance fetched successfully  count=3
+29 Jan 25 02:33 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:77 | Graceful shutdown is running.. 
+29 Jan 25 02:33 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:76 | Stopping http-server... 
+29 Jan 25 02:33 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:84 | Stopping PostgreSQL repository.. 
+29 Jan 25 02:33 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/pkg/httpServer/server.go:60 | Keep alive http-worker is stopped correct 
+29 Jan 25 02:33 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/store/postgres/postgresRepo.go:54 | Keep alive worker is stopped.. 
+29 Jan 25 02:33 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/grpc/client.go:36 | GRPC client is stopping.. 
+29 Jan 25 02:33 MSK | [INFO] | /home/ilyasafonov/work/wallet_exchange/gw-currency-wallet/internal/app/app.go:94 | Wallet service is stopped 
