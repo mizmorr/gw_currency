@@ -88,7 +88,7 @@ func (wc *WalletController) Login(c *gin.Context) {
 // @Success 200 {object} map[string]interface{}
 // @Failure 401 {object} map[string]string "unauthorized"
 // @Failure 500 {object} map[string]string "failed to get balance"
-// @Router /balance [get]
+// @Router /wallet/balance [get]
 func (wc *WalletController) GetBalance(c *gin.Context) {
 	userID, exists := c.Get("user_id")
 	if !exists {
@@ -98,7 +98,7 @@ func (wc *WalletController) GetBalance(c *gin.Context) {
 
 	balance, err := wc.service.GetBalance(c.Request.Context(), userID.(int64))
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to get balance"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
@@ -116,7 +116,7 @@ func (wc *WalletController) GetBalance(c *gin.Context) {
 // @Failure 400 {object} map[string]string "invalid request"
 // @Failure 401 {object} map[string]string "unauthorized"
 // @Failure 500 {object} map[string]string "failed to deposit"
-// @Router /deposit [post]
+// @Router /wallet/deposit [post]
 func (wc *WalletController) Deposit(c *gin.Context) {
 	userID, exists := c.Get("user_id")
 	if !exists {
@@ -132,7 +132,7 @@ func (wc *WalletController) Deposit(c *gin.Context) {
 
 	newBalance, err := wc.service.Deposit(c.Request.Context(), userID.(int64), &req)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to deposit"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
@@ -150,7 +150,7 @@ func (wc *WalletController) Deposit(c *gin.Context) {
 // @Failure 400 {object} map[string]string "invalid request"
 // @Failure 401 {object} map[string]string "unauthorized"
 // @Failure 500 {object} map[string]string "failed to withdraw"
-// @Router /withdraw [post]
+// @Router /wallet/withdraw [post]
 func (wc *WalletController) Withdraw(c *gin.Context) {
 	userID, exists := c.Get("user_id")
 	if !exists {
@@ -166,7 +166,7 @@ func (wc *WalletController) Withdraw(c *gin.Context) {
 
 	newBalance, err := wc.service.Withdraw(c.Request.Context(), userID.(int64), &req)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to withdraw"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
@@ -203,13 +203,14 @@ func (wc *WalletController) Refresh(c *gin.Context) {
 // @Description Fetches the latest exchange rates
 // @Tags exchange
 // @Produce  json
+// @Security     BearerAuth
 // @Success 200 {object} map[string]interface{}
 // @Failure 500 {object} map[string]string "failed to get exchange rates"
-// @Router /exchange-rates [get]
+// @Router /exchange/rates [get]
 func (wc *WalletController) ExchangeRatesHandler(c *gin.Context) {
 	rates, err := wc.service.ExchangeRates(c.Request.Context())
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": errors.Wrap(err, "failed to get exchange rates").Error()})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 

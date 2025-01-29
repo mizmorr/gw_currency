@@ -20,6 +20,7 @@ type Controller interface {
 func NewRouter(router *gin.Engine, authMiddleware gin.HandlerFunc, c Controller) {
 	router.Use(gin.Recovery())
 	router.Use(gin.Logger())
+
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	publicRoutes := router.Group("/api/v1")
@@ -29,14 +30,15 @@ func NewRouter(router *gin.Engine, authMiddleware gin.HandlerFunc, c Controller)
 		publicRoutes.POST("/refresh", c.Refresh)
 	}
 
-	protectedRoutes := router.Group("/api/v1/wallet")
+	protectedRoutes := router.Group("/api/v1")
 	protectedRoutes.Use(authMiddleware)
+	walletRoutes := protectedRoutes.Group("/wallet")
 	{
-		protectedRoutes.GET("/balance", c.GetBalance)
-		protectedRoutes.POST("/deposit", c.Deposit)
-		protectedRoutes.POST("/withdraw", c.Withdraw)
 
-		protectedRoutes.GET("/exchange-rates", c.ExchangeRatesHandler)
-		protectedRoutes.POST("/exchange", c.ExchangeHandler)
+		walletRoutes.GET("/balance", c.GetBalance)
+		walletRoutes.POST("/deposit", c.Deposit)
+		walletRoutes.POST("/withdraw", c.Withdraw)
 	}
+	protectedRoutes.GET("/exchange/rates", c.ExchangeRatesHandler)
+	protectedRoutes.POST("/exchange", c.ExchangeHandler)
 }
