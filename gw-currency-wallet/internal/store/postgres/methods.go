@@ -23,28 +23,41 @@ func (repo *PostgresRepo) CreateUser(ctx context.Context, user *store.User) erro
             ($1, 'USD', 0)`
 	)
 
+	repo.log.Info().Str("username", user.Username).Str("email", user.Email).Msg("Starting user creation")
+
 	hashedPassword, err := hasher.MakeHash(user.Password)
 	if err != nil {
+		repo.log.Error().Err(err).Msg("Failed to hash password")
 		return err
 	}
+
+	repo.log.Info().Msg(hashedPassword)
 
 	err = repo.db.QueryRow(ctx, sqlCreateUser, user.Username, user.Email, hashedPassword).Scan(&userID)
 	if err != nil {
+		repo.log.Error().Err(err).Str("username", user.Username).Msg("Failed to insert user into database")
 		return err
 	}
+	repo.log.Info().Int64("userID", userID).Msg("User created successfully")
 
 	err = repo.db.QueryRow(ctx, sqlCreateWallet, userID).Scan(&walletID)
 	if err != nil {
+		repo.log.Error().Err(err).Int64("userID", userID).Msg("Failed to create wallet")
 		return err
 	}
+	repo.log.Info().Int64("walletID", walletID).Msg("Wallet created successfully")
+
 	row, err := repo.db.Exec(ctx, sqlSetBalances, walletID)
 	if err != nil {
+		repo.log.Error().Err(err).Int64("walletID", walletID).Msg("Failed to set initial wallet balances")
 		return err
 	}
 	if row.RowsAffected() == 0 {
-		return errors.New("setting wallet balance faild")
+		repo.log.Warn().Int64("walletID", walletID).Msg("No balances were set, possible issue with wallet balance initialization")
+		return errors.New("setting wallet balance failed")
 	}
 
+	repo.log.Info().Int64("userID", userID).Int64("walletID", walletID).Msg("User and wallet setup completed successfully")
 	return nil
 }
 
@@ -55,35 +68,48 @@ func (repo *PostgresRepo) Authentication(ctx context.Context, user *store.User) 
 		userID   int64
 	)
 
+	repo.log.Info().Str("username", user.Username).Msg("Starting authentication")
+
 	err := repo.db.QueryRow(ctx, sql, user.Username).Scan(&userID, &password)
 	if err != nil {
+		repo.log.Warn().Str("username", user.Username).Err(err).Msg("Invalid credentials")
 		return 0, errors.Wrap(err, "invalid credentials")
 	}
 
+	repo.log.Debug().Int64("userID", userID).Msg("User found in database")
+
 	if !hasher.CheckPassword(user.Password, password) {
+		repo.log.Warn().Str("username", user.Username).Msg("Incorrect password")
 		return 0, errors.New("password is not correct")
 	}
 
+	repo.log.Info().Int64("userID", userID).Msg("Authentication successful")
 	return userID, nil
 }
 
 func (repo *PostgresRepo) SetToken(ctx context.Context, refresh *store.RefreshToken) error {
+	repo.log.Info().Int64("userID", refresh.UserID).Msg("Setting refresh token")
 	err := repo.createRefreshToken(ctx, refresh.ExpiresAt, refresh.Hash, refresh.UserID)
 	if err != nil {
+		repo.log.Error().Err(err).Msg("Failed to set refresh token")
 		return errors.Wrap(err, "invalid refresh token")
 	}
-
 	return nil
 }
 
 func (repo *PostgresRepo) createRefreshToken(ctx context.Context, expTime time.Time, refreshToken string, userid int64) error {
+	repo.log.Debug().Int64("userID", userid).Msg("Creating refresh token")
 	sql := `INSERT into refresh_tokens(user_id,token_hash,expires_at, revoked) VALUES
 	($1,$2,$3,false)`
 	_, err := repo.db.Exec(ctx, sql, userid, refreshToken, expTime)
+	if err != nil {
+		repo.log.Error().Err(err).Msg("Failed to create refresh token")
+	}
 	return err
 }
 
 func (repo *PostgresRepo) GetSpecificCurrency(ctx context.Context, req *store.CurrencyRequest) (*store.WalletCurrency, error) {
+	repo.log.Info().Int64("userID", req.UserID).Str("currency", req.CurrencyCode).Msg("Fetching specific currency")
 	var (
 		sql = `SELECT
     	wb.id,
@@ -102,15 +128,19 @@ func (repo *PostgresRepo) GetSpecificCurrency(ctx context.Context, req *store.Cu
 	)
 	err := repo.db.QueryRow(ctx, sql, req.UserID, req.CurrencyCode).Scan(&balance.ID, &balance.Currency, &balance.Balance)
 	if err == pgx.ErrNoRows {
+		repo.log.Warn().Msg("Currency not found")
 		return nil, errors.New("currency not found")
 	} else if err != nil {
+		repo.log.Error().Err(err).Msg("Failed to query currency")
 		return nil, errors.Wrap(err, "failed to query currency")
 	}
-
+	repo.log.Debug().Interface("balance", balance).Msg("Currency retrieved successfully")
 	return &balance, nil
 }
 
 func (repo *PostgresRepo) GetBalance(ctx context.Context, userid int64) ([]*store.WalletCurrency, error) {
+	repo.log.Info().Int64("userID", userid).Msg("Fetching wallet balance")
+
 	var (
 		sql = `SELECT
     	wb.id,
@@ -128,26 +158,31 @@ func (repo *PostgresRepo) GetBalance(ctx context.Context, userid int64) ([]*stor
 	)
 	rows, err := repo.db.Query(ctx, sql, userid)
 	if err != nil {
+		repo.log.Error().Err(err).Msg("Failed to query wallet balances")
 		return nil, errors.Wrap(err, "failed to query wallet balances")
 	}
 	defer rows.Close()
 
 	for rows.Next() {
 		var currency store.WalletCurrency
-
 		err = rows.Scan(&currency.ID, &currency.Currency, &currency.Balance)
 		if err != nil {
+			repo.log.Error().Err(err).Msg("Failed to scan row")
 			return nil, errors.Wrap(err, "failed to scan row")
 		}
 		balance = append(balance, &currency)
 	}
-
+	repo.log.Debug().Int("count", len(balance)).Msg("Wallet balance fetched successfully")
 	return balance, nil
 }
 
 func (repo *PostgresRepo) UpdateBalance(ctx context.Context, newBalance *store.UpdateBalance) error {
 	operator, err := repo.getOperator(newBalance.Operation)
+	repo.log.Info().Int64("userID", newBalance.UserID).Str("currency", newBalance.Currency).Str("operation", newBalance.Operation).Msg("Updating balance")
+
 	if err != nil {
+
+		repo.log.Error().Err(err).Msg("Invalid operation")
 		return err
 	}
 
@@ -196,25 +231,28 @@ AND wallet_id IN (SELECT id FROM wallet_ids);`
 }
 
 func (repo *PostgresRepo) ExchangeCurrency(ctx context.Context, exchangeBody *store.ExchangeBalance) error {
+	repo.log.Info().Int64("userID", exchangeBody.UserID).Str("from", exchangeBody.FromCurrency).Str("to", exchangeBody.ToCurrency).Msg("Starting currency exchange")
 	tx, err := repo.db.Begin(ctx)
 	if err != nil {
-		return errors.Wrap(err, "failed to begin transactionw")
+		repo.log.Error().Err(err).Msg("Failed to begin transaction")
+		return errors.Wrap(err, "failed to begin transaction")
 	}
 	defer func() {
 		if err != nil {
+			repo.log.Error().Err(err).Msg("Rolling back transaction")
 			_ = tx.Rollback(ctx)
 		}
 	}()
-
 	err = repo.makeExchange(ctx, tx, exchangeBody)
 	if err != nil {
 		return err
 	}
 	err = tx.Commit(ctx)
 	if err != nil {
+		repo.log.Error().Err(err).Msg("Failed to commit transaction")
 		return errors.Wrap(err, "failed to commit transaction")
 	}
-
+	repo.log.Info().Msg("Currency exchange completed successfully")
 	return nil
 }
 
@@ -231,6 +269,8 @@ func (repo *PostgresRepo) makeExchange(ctx context.Context, tx pgx.Tx, exchangeB
 }
 
 func (repo *PostgresRepo) CheckRefreshToken(ctx context.Context, token *store.RefreshToken) error {
+	repo.log.Debug().Int64("user_id", token.UserID).Str("token_hash", token.Hash).Msg("Checking refresh token")
+
 	sql := `SELECT 1
 FROM refresh_tokens
 WHERE user_id = $1
@@ -239,10 +279,22 @@ WHERE user_id = $1
 LIMIT 1;`
 
 	var exists int
-
 	err := repo.db.QueryRow(ctx, sql, token.UserID, token.Hash).Scan(&exists)
+	if err == pgx.ErrNoRows {
+		repo.log.Warn().Int64("user_id", token.UserID).Msg("Refresh token not found or expired")
+		return errors.New("token not found")
+	} else if err != nil {
+		repo.log.Error().Err(err).Int64("user_id", token.UserID).Msg("Failed to check refresh token")
+		return errors.Wrap(err, "failed to check refresh token")
+	}
 
-	return repo.handleRefreshTokenRepsonse(err, exists)
+	if exists == 0 {
+		repo.log.Warn().Int64("user_id", token.UserID).Msg("Token has been revoked")
+		return errors.New("token has been revoked")
+	}
+
+	repo.log.Info().Int64("user_id", token.UserID).Msg("Refresh token is valid")
+	return nil
 }
 
 func (repo *PostgresRepo) handleRefreshTokenRepsonse(err error, exists int) error {
