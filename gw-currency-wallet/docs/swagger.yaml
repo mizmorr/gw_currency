@@ -80,77 +80,6 @@ info:
   title: Swagger API
   version: "1.0"
 paths:
-  /balance:
-    get:
-      description: Returns the balance of an authenticated user
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            additionalProperties: true
-            type: object
-        "401":
-          description: unauthorized
-          schema:
-            additionalProperties:
-              type: string
-            type: object
-        "500":
-          description: failed to get balance
-          schema:
-            additionalProperties:
-              type: string
-            type: object
-      security:
-      - BearerAuth: []
-      summary: Get user balance
-      tags:
-      - wallet
-  /deposit:
-    post:
-      consumes:
-      - application/json
-      description: Deposits funds into the user's account
-      parameters:
-      - description: Deposit data
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/domain.DepositRequest'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            additionalProperties: true
-            type: object
-        "400":
-          description: invalid request
-          schema:
-            additionalProperties:
-              type: string
-            type: object
-        "401":
-          description: unauthorized
-          schema:
-            additionalProperties:
-              type: string
-            type: object
-        "500":
-          description: failed to deposit
-          schema:
-            additionalProperties:
-              type: string
-            type: object
-      security:
-      - BearerAuth: []
-      summary: Deposit funds
-      tags:
-      - wallet
   /exchange:
     post:
       consumes:
@@ -188,7 +117,7 @@ paths:
       summary: Exchange currency
       tags:
       - exchange
-  /exchange-rates:
+  /exchange/rates:
     get:
       description: Fetches the latest exchange rates
       produces:
@@ -205,6 +134,8 @@ paths:
             additionalProperties:
               type: string
             type: object
+      security:
+      - BearerAuth: []
       summary: Get exchange rates
       tags:
       - exchange
@@ -302,7 +233,78 @@ paths:
       summary: Register a new user
       tags:
       - auth
-  /withdraw:
+  /wallet/balance:
+    get:
+      description: Returns the balance of an authenticated user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "401":
+          description: unauthorized
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: failed to get balance
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Get user balance
+      tags:
+      - wallet
+  /wallet/deposit:
+    post:
+      consumes:
+      - application/json
+      description: Deposits funds into the user's account
+      parameters:
+      - description: Deposit data
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/domain.DepositRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: invalid request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "401":
+          description: unauthorized
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: failed to deposit
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Deposit funds
+      tags:
+      - wallet
+  /wallet/withdraw:
     post:
       consumes:
       - application/json
@@ -346,6 +348,8 @@ paths:
       tags:
       - wallet
 securityDefinitions:
-  BasicAuth:
-    type: basic
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
 swagger: "2.0"
