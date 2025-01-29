@@ -6,22 +6,14 @@ type RegisterRequest struct {
 	Password string `json:"password" binding:"required"`
 }
 
-type RegisterResponse struct {
-	Message string `json:"message"`
-}
-
 type AuthorizationRequest struct {
 	Username string `json:"username" binding:"required"`
 	Password string `json:"password" binding:"required"`
 }
 
-type AuthorizationResponse struct {
-	Token string `json:"token"`
-}
-
 type BalanceResponse struct {
-	Currency string  `json:"currency" binding:"required"`
-	Value    float64 `json:"value" binding:"required"`
+	Currency string  `json:"currency" `
+	Value    float64 `json:"value" `
 }
 
 type DepositRequest struct {
