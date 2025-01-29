@@ -5,7 +5,7 @@ go 1.23.3
 require (
 	github.com/jackc/pgx/v5 v5.7.2
 	github.com/mizmorr/grpc_exchange v0.0.0-20250113204721-39b834954e45
-	github.com/mizmorr/loggerm v0.0.0-20250118120006-e96ca438d8c6
+	github.com/mizmorr/loggerm v0.0.0-20250128225323-d529494cb895
 	github.com/pkg/errors v0.9.1
 	github.com/spf13/viper v1.19.0
 	github.com/stretchr/testify v1.10.0
