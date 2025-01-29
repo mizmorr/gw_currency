@@ -4,12 +4,24 @@ import (
 	"context"
 	"time"
 
+	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5/pgconn"
+	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/mizmorr/gw_currency/gw-currency-wallet/internal/config"
 	logger "github.com/mizmorr/loggerm"
 )
 
+type database interface {
+	QueryRow(ctx context.Context, sql string, args ...interface{}) pgx.Row
+	Exec(ctx context.Context, sql string, args ...interface{}) (pgconn.CommandTag, error)
+	Query(ctx context.Context, sql string, args ...interface{}) (pgx.Rows, error)
+	Acquire(ctx context.Context) (*pgxpool.Conn, error)
+	Close()
+	Begin(ctx context.Context) (pgx.Tx, error)
+}
+
 type PostgresRepo struct {
-	db     *db
+	db     database
 	stop   chan interface{}
 	config *config.Config
 	log    *logger.Logger
@@ -18,20 +30,19 @@ type PostgresRepo struct {
 func NewPostgresRepo(ctx context.Context) (*PostgresRepo, error) {
 	config := config.Get()
 
-	db, err := newDBConnector(ctx, config)
-	if err != nil {
-		return nil, err
-	}
-
 	log := logger.GetLoggerFromContext(ctx)
 
 	ch := make(chan interface{})
 
+	db, err := newDBConnector(ctx, config)
+	if err != nil {
+		return nil, err
+	}
 	return &PostgresRepo{
-		db:     db,
 		stop:   ch,
 		config: config,
 		log:    log,
+		db:     db,
 	}, nil
 }
 
