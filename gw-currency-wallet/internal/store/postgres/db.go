@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"github.com/jackc/pgx/v5"
-	"github.com/jackc/pgx/v5/pgconn"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/mizmorr/gw_currency/gw-currency-wallet/internal/config"
 	"github.com/mizmorr/gw_currency/gw-exchanger/pkg/utils/connector"
@@ -68,28 +67,4 @@ func dial(ctx context.Context, connectAttempts int, timeout time.Duration) error
 		err = connector.EstablishConnection(ctx, pgInstance.Pool, connectAttempts, timeout)
 	})
 	return err
-}
-
-func (d *db) QueryRow(ctx context.Context, sql string, args ...interface{}) pgx.Row {
-	return d.Pool.QueryRow(ctx, sql, args...)
-}
-
-func (d *db) Exec(ctx context.Context, sql string, args ...interface{}) (pgconn.CommandTag, error) {
-	return d.Pool.Exec(ctx, sql, args)
-}
-
-func (d *db) Query(ctx context.Context, sql string, args ...interface{}) (pgx.Rows, error) {
-	return d.Pool.Query(ctx, sql, args...)
-}
-
-func (d *db) Close() {
-	d.Pool.Close()
-}
-
-func (d *db) Acquire(ctx context.Context) (*pgxpool.Conn, error) {
-	return d.Pool.Acquire(ctx)
-}
-
-func (d *db) Begin(ctx context.Context) (pgx.Tx, error) {
-	return d.Pool.Begin(ctx)
 }

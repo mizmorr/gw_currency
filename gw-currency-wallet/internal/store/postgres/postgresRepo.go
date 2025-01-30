@@ -4,24 +4,12 @@ import (
 	"context"
 	"time"
 
-	"github.com/jackc/pgx/v5"
-	"github.com/jackc/pgx/v5/pgconn"
-	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/mizmorr/gw_currency/gw-currency-wallet/internal/config"
 	logger "github.com/mizmorr/loggerm"
 )
 
-type database interface {
-	QueryRow(ctx context.Context, sql string, args ...interface{}) pgx.Row
-	Exec(ctx context.Context, sql string, args ...interface{}) (pgconn.CommandTag, error)
-	Query(ctx context.Context, sql string, args ...interface{}) (pgx.Rows, error)
-	Acquire(ctx context.Context) (*pgxpool.Conn, error)
-	Close()
-	Begin(ctx context.Context) (pgx.Tx, error)
-}
-
 type PostgresRepo struct {
-	db     database
+	db     *db
 	stop   chan interface{}
 	config *config.Config
 	log    *logger.Logger
