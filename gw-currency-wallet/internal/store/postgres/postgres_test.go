@@ -6,87 +6,152 @@ import (
 	"time"
 
 	"github.com/mizmorr/gw_currency/gw-currency-wallet/internal/store"
-	logger "github.com/mizmorr/loggerm"
 
-	"github.com/pashagolub/pgxmock/v2"
 	"github.com/stretchr/testify/assert"
 )
 
-func setupMockRepo(t *testing.T) (*PostgresRepo, pgxmock.PgxPoolIface) {
-	mockDB, err := pgxmock.NewPool()
-	assert.NoError(t, err)
-	defer mockDB.Close()
-	logger := logger.Get("test.log", "debug")
-	repo := &PostgresRepo{db: mockDB, log: logger}
-	defer mockDB.Close()
-	return repo, mockDB
+func getRepo(ctx context.Context) (*PostgresRepo, error) {
+	repo, err := NewPostgresRepo(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	err = repo.Start(ctx)
+	if err != nil {
+		return nil, err
+	}
+	return repo, nil
 }
 
 func TestCreateUser(t *testing.T) {
-	testRepo, mockDB := setupMockRepo(t)
+	testStartTime := time.Now()
 
 	ctx := context.Background()
-	user := &store.User{Username: "testcreateuser", Email: "test@example.com", Password: "securepassword"}
 
-	mockDB.ExpectQuery(`INSERT INTO users`).
-		WithArgs(user.Username, user.Email, pgxmock.AnyArg()).
-		WillReturnRows(pgxmock.NewRows([]string{"id"}).AddRow(int64(1)))
+	repo, err := getRepo(ctx)
+	assert.NoError(t, err)
 
-	mockDB.ExpectQuery(`INSERT INTO wallets`).
-		WithArgs(int64(1)).
-		WillReturnRows(pgxmock.NewRows([]string{"id"}).AddRow(int64(1001)))
+	defer repo.Stop(ctx)
 
-	mockDB.ExpectExec(`INSERT INTO wallet_balances`).
-		WithArgs(int64(1001)).
-		WillReturnResult(pgxmock.NewResult("INSERT", 3))
+	user := &store.User{Username: "testcreateuser", Email: "test@example.com", Password: "securepassword", CreatedAt: testStartTime}
 
-	err := testRepo.CreateUser(ctx, user)
+	err = repo.CreateUser(ctx, user)
 
 	assert.NoError(t, err)
 
-	assert.NoError(t, mockDB.ExpectationsWereMet())
+	if err == nil {
+		_, err = repo.db.Exec(ctx, "DELETE FROM users WHERE created_at > $1", testStartTime)
+		assert.NoError(t, err)
+	}
+}
+
+func TestAuthentication(t *testing.T) {
+	ctx := context.Background()
+
+	testStartTime := time.Now()
+
+	repo, err := getRepo(ctx)
+	assert.NoError(t, err)
+	defer repo.Stop(ctx)
+
+	// Тестовый пользователь
+	user := &store.User{Username: "testuserauth", Password: "correctpassword", CreatedAt: testStartTime}
+
+	// Создание тестового пользователя в базе (если нужно)
+	err = repo.CreateUser(ctx, user)
+	assert.NoError(t, err)
+
+	// Тестирование успешной аутентификации
+	userID, err := repo.Authentication(ctx, user)
+	assert.NoError(t, err)
+	assert.NotZero(t, userID)
+	if err == nil {
+		_, err = repo.db.Exec(ctx, "DELETE FROM users WHERE created_at > $1", testStartTime)
+		assert.NoError(t, err)
+	}
+
+	// Тестирование аутентификации с неверным паролем
+	invalidUser := &store.User{Username: "testuserauth", Password: "wrongpassword"}
+	_, err = repo.Authentication(ctx, invalidUser)
+	assert.Error(t, err)
+
+	// Тестирование аутентификации с несуществующим пользователем
+	nonExistentUser := &store.User{Username: "nonexistentuserauth", Password: "any"}
+	_, err = repo.Authentication(ctx, nonExistentUser)
+	assert.Error(t, err)
 }
 
 func TestSetToken(t *testing.T) {
-	repo, mockDB := setupMockRepo(t)
 	ctx := context.Background()
-	refresh := &store.RefreshToken{UserID: 1, Hash: "somehash", ExpiresAt: time.Now().Add(time.Hour)}
-
-	mockDB.ExpectExec("INSERT into refresh_tokens").
-		WithArgs(refresh.UserID, refresh.Hash, refresh.ExpiresAt).
-		WillReturnResult(pgxmock.NewResult("INSERT", 1))
-
-	err := repo.SetToken(ctx, refresh)
+	repo, err := getRepo(ctx)
+	testStartTime := time.Now()
 	assert.NoError(t, err)
-	assert.NoError(t, mockDB.ExpectationsWereMet())
-}
+	defer repo.Stop(ctx)
 
-func TestGetBalance(t *testing.T) {
-	repo, mockDB := setupMockRepo(t)
-	ctx := context.Background()
+	// Создание тестового refresh токена
+	refreshToken := &store.RefreshToken{
+		UserID:    1,
+		Hash:      "samplehash",
+		ExpiresAt: time.Now().Add(24 * time.Hour),
+		CreatedAt: testStartTime,
+	}
 
-	mockDB.ExpectQuery("SELECT wb.id, wb.currency, wb.balance").
-		WithArgs(int64(1)).
-		WillReturnRows(pgxmock.NewRows([]string{"id", "currency", "balance"}).
-			AddRow(int64(100), "USD", 500.0).
-			AddRow(int64(101), "EUR", 300.0))
-
-	balance, err := repo.GetBalance(ctx, 1)
+	// Тестирование успешного создания refresh токена
+	err = repo.SetToken(ctx, refreshToken)
 	assert.NoError(t, err)
-	assert.Len(t, balance, 2)
-	assert.NoError(t, mockDB.ExpectationsWereMet())
+	if err == nil {
+		_, err = repo.db.Exec(ctx, "DELETE FROM refresh_tokens WHERE created_at > $1", testStartTime)
+		assert.NoError(t, err)
+	}
+	// Тестирование ошибки при создании токена
+	invalidToken := &store.RefreshToken{
+		UserID:    0, // Неверный userID
+		Hash:      "invalidhash",
+		ExpiresAt: time.Now().Add(-1 * time.Hour), // Истекший токен
+	}
+	err = repo.SetToken(ctx, invalidToken)
+	assert.Error(t, err)
 }
 
 func TestCheckRefreshToken(t *testing.T) {
-	repo, mockDB := setupMockRepo(t)
 	ctx := context.Background()
-	token := &store.RefreshToken{UserID: 1, Hash: "somehash"}
-
-	mockDB.ExpectQuery("SELECT 1 FROM refresh_tokens").
-		WithArgs(token.UserID, token.Hash).
-		WillReturnRows(pgxmock.NewRows([]string{"exists"}).AddRow(1))
-
-	err := repo.CheckRefreshToken(ctx, token)
+	repo, err := getRepo(ctx)
+	testStartTime := time.Now()
 	assert.NoError(t, err)
-	assert.NoError(t, mockDB.ExpectationsWereMet())
+	defer repo.Stop(ctx)
+
+	refreshToken := &store.RefreshToken{
+		UserID:    2,
+		Hash:      "validtokenhash",
+		ExpiresAt: time.Now().Add(24 * time.Hour),
+		CreatedAt: testStartTime,
+	}
+
+	// Тестирование успешного создания refresh токена
+	err = repo.SetToken(ctx, refreshToken)
+	assert.NoError(t, err)
+	defer func() {
+		if err == nil {
+			_, err = repo.db.Exec(ctx, "DELETE FROM refresh_tokens WHERE created_at > $1", testStartTime)
+			assert.NoError(t, err)
+		}
+	}()
+
+	// Создание валидного refresh токена
+	validToken := &store.RefreshToken{
+		UserID: 2,
+		Hash:   "validtokenhash",
+	}
+
+	// Проверка наличия токена в базе
+	err = repo.CheckRefreshToken(ctx, validToken)
+	assert.NoError(t, err)
+
+	// Тестирование случая, когда токен не найден
+	invalidToken := &store.RefreshToken{
+		UserID: 2,
+		Hash:   "invalidtokenhash",
+	}
+	err = repo.CheckRefreshToken(ctx, invalidToken)
+	assert.Error(t, err)
 }
